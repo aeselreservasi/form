@@ -1,0 +1,13 @@
+.qris-img {
+  width: 180px;      /* paksa kecil di laptop */
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+/* HP – lebih kecil lagi */
+@media (max-width: 480px) {
+  .qris-img {
+    width: 140px;   /* kecil di layar hp */
+  }
+}
