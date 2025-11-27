@@ -13,10 +13,34 @@
   <link rel="stylesheet" href="img.css">
 </head>
 <body>
-
 <div class="form-section">
-  <img src="logo.png" alt="Logo Aesel" class="logo">
-  <h2 class="mb-4 text-center">Aesel Reservasi</h2>
+<div class="info-grid">
+  <!-- Logo -->
+  <div class="logo">
+    <img src="logo.png" alt="Logo Aesel">
+  </div>
+
+  <!-- Paragraf -->
+  <div class="text-area">
+    <h2 class="mb-3">Aesel Reservasi 🇮🇩🇯🇵</h2>
+
+    <span>📌 Jasa Pendaftaran & Reservasi Ujian: JLPT | JFT | SSW</span>
+    <span>✅ Untuk peserta di Indonesia & Jepang</span>
+    <span>✅ Lebih dari 700 akun berhasil didaftarkan</span>
+    <span>✅ Cepat, aman, dan transparan</span>
+    <span style="margin-top: 6px;">📩 Chat sekarang untuk reservasi resmi!</span>
+
+    <!-- Ikon Sosial -->
+    <div class="social-row">
+      <a href="https://wa.me/6285353795801"><img src="icons/wa.png" alt="WhatsApp"></a>
+      <a href="https://wa.me/62895346030735"><img src="icons/wa.png" alt="WhatsApp"></a>
+      <a href="https://www.tiktok.com/@aeselReservasi"><img src="icons/tiktok.png" alt="TikTok"></a>
+      <a href="https://www.facebook.com/aesel.ridwansyah"><img src="icons/facebook.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/aesel_reservasi"><img src="icons/instagram.png" alt="Instagram"></a>
+      <a href="https://www.youtube.com/@aeselreservasi"><img src="icons/youtube.png" alt="youtube"></a>
+    </div>
+  </div>
+</div>
 
   <!-- Progress Bar -->
   <div class="mb-4">
@@ -54,7 +78,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="telepon" class="form-label">Nomor Telepon</label>
+          <label for="telepon" class="form-label">Nomor WA</label>
           <input type="tel" class="form-control" id="telepon" pattern="08[0-9]{8,11}" required>
           <div class="invalid-feedback">Gunakan format: 08xxxxxxxxxx</div>
         </div>
@@ -91,7 +115,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="id-prometrik" class="form-label">ID Prometrik</label>
+          <label for="id-prometrik" class="form-label">ID Prometric</label>
           <input type="text" class="form-control" id="id-prometrik" pattern="JP[0-9]{7}" required>
           <div class="invalid-feedback">Contoh: JP2190165</div>
         </div>
@@ -241,7 +265,6 @@
       </button>
     </div>
   </div>
-</div>
 
 <!-- Modal Konfirmasi Reset -->
 <div class="modal fade" id="resetModal" tabindex="-1" aria-hidden="true">
@@ -264,6 +287,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <!-- Bootstrap JS -->
