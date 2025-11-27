@@ -11,3 +11,65 @@
     width: 140px;   /* kecil di layar hp */
   }
 }
+
+  /* Grid khusus logo & paragraf */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr; /* Logo 120px, paragraf mengisi sisa area */
+    align-items: start;
+    gap: 16px;
+  }
+
+  /* Logo */
+  .info-grid .logo img {
+    width: 100px;
+    height: auto;
+    display: block;
+  }
+
+  /* Paragraf */
+  .info-grid .text-area {
+    text-align: left;
+  }
+
+  .info-grid .text-area span {
+    display: block;
+  }
+
+  /* Ikon sosial */
+  .social-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /* justify-content: flex-start; */
+  }
+
+  .social-row img {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Responsive untuk HP */
+  @media (max-width: 600px) {
+    .info-grid {
+      grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+      text-align: center;
+    }
+
+    .info-grid .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 4px;
+    }
+
+    .info-grid .text-area {
+      text-align: center;
+    }
+
+    .social-row {
+      justify-content: center;
+    }
+  }
+
