@@ -1,304 +1,302 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Form Ujian</title>
-
-  <!-- Bootstrap & Icon -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="img.css">
-</head>
-<body>
-<div class="form-section">
-<div class="info-grid">
-  <!-- Logo -->
-  <div class="logo">
-    <img src="logo.png" alt="Logo Aesel">
-  </div>
-
-  <!-- Paragraf -->
-  <div class="text-area">
-    <h2 class="mb-3">Aesel Reservasi 🇮🇩🇯🇵</h2>
-
-    <span>📌 Jasa Pendaftaran & Reservasi Ujian: JLPT | JFT | SSW</span>
-    <span>✅ Untuk peserta di Indonesia & Jepang</span>
-    <span>✅ Lebih dari 700 akun berhasil didaftarkan</span>
-    <span>✅ Cepat, aman, dan transparan</span>
-    <span style="margin-top: 6px;">📩 Chat sekarang untuk reservasi resmi!</span>
-
-    <!-- Ikon Sosial -->
-    <div class="social-row">
-      <a href="https://wa.me/6285353795801"><img src="icons/wa.png" alt="WhatsApp"></a>
-      <a href="https://wa.me/62895346030735"><img src="icons/wa.png" alt="WhatsApp"></a>
-      <a href="https://www.tiktok.com/@aeselReservasi"><img src="icons/tiktok.png" alt="TikTok"></a>
-      <a href="https://www.facebook.com/aesel.ridwansyah"><img src="icons/facebook.png" alt="Facebook"></a>
-      <a href="https://www.instagram.com/aesel_reservasi"><img src="icons/instagram.png" alt="Instagram"></a>
-      <a href="https://www.youtube.com/@aeselreservasi"><img src="icons/youtube.png" alt="youtube"></a>
-    </div>
-  </div>
-</div>
-
-  <!-- Progress Bar -->
-  <div class="mb-4">
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped" id="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"></div>
-    </div>
-  </div>
-
-  <!-- Step Container -->
-  <div class="step-container">
-
-    <!-- STEP 1 -->
-    <div id="step1">
-      <form id="layanan-form">
-        <div class="mb-3">
-          <select class="form-select" id="layanan" required>
-            <option value="">-- Pilih Layanan --</option>
-            <option value="reservasi">Reservasi</option>
-            <option value="reschedule">Reschedule</option>
-          </select>
-          <div class="invalid-feedback">Wajib pilih layanan.</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Form Ujian</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="form-section">
+      <div class="info-grid">
+        <div class="logo">
+          <img src="logo.png" alt="Logo Aesel" />
         </div>
-        <button type="submit" class="btn btn-primary">Lanjut</button>
-      </form>
-    </div>
-
-    <!-- STEP 2 -->
-    <div id="step2" style="display: none;">
-      <form id="data-form" class="needs-validation" novalidate>
-        <input type="hidden" id="mode-layanan">
-
-        <div class="mb-3">
-          <label for="nama" class="form-label">Nama Lengkap</label>
-          <input type="text" class="form-control" id="nama" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="telepon" class="form-label">Nomor WA</label>
-          <input type="tel" class="form-control" id="telepon" pattern="08[0-9]{8,11}" required>
-          <div class="invalid-feedback">Gunakan format: 08xxxxxxxxxx</div>
-        </div>
-
-        <div class="mb-3">
-          <label for="jenis-ujian" class="form-label">Jenis Ujian</label>
-          <select class="form-select" id="jenis-ujian" required>
-            <option value="">-- Pilih Jenis Ujian --</option>
-            <option value="JFT">JFT Basic A2</option>
-            <option value="PM">PM (Pengolahan Makanan)</option>
-            <option value="RESTO">RESTORAN</option>
-            <option value="KGINDO">Kaigo Indonesia</option>
-            <option value="KGJAPAN">Kaigo Jepang</option>
-            <option value="PERTANIAN">PERTANIAN</option>
-            <option value="PETERNAKAN">PETERNAKAN</option>
-            <!-- <option value="PERIKANAN">PERIKANAN</option>
-            <option value="AKUAKULTUR">AKUAKULTUR</option>
-            <option value="CIVIL">CIVIL</option>
-            <option value="BUILDING">BUILDING</option>
-            <option value="INFRASTRUCTURE">INFRASTRUCTURE</option>
-            <option value="ACCOMODATION">ACCOMODATION</option>
-            <option value="AUTOMOBILE">AUTOMOBILE</option>
-            <option value="MACHINING">MACHINING</option>
-            <option value="ELECTRONIC_ASSEMBLY">ELECTRONIC_ASSEMBLY</option>
-            <option value="SURFACE_TREATMENT">SURFACE_TREATMENT</option>
-            <option value="CARDBOARD">CARDBOARD</option>
-            <option value="PRECAST">PRECAST</option>
-            <option value="RDF_FUEL">RDF_FUEL</option>
-            <option value="POTTERY">POTTERY</option>
-            <option value="PRINTING">PRINTING</option>
-            <option value="TEXTILES">TEXTILES</option>
-            <option value="SEWING">SEWING</option> -->
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="id-prometrik" class="form-label">ID Prometric</label>
-          <input type="text" class="form-control" id="id-prometrik" pattern="JP[0-9]{7}" required>
-          <div class="invalid-feedback">Contoh: JP2190165</div>
-        </div>
-
-        <div class="mb-3 password-container">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" minlength="6" required>
-          <button type="button" id="toggle-password">
-            <i id="password-icon" class="bi bi-eye-slash"></i>
-          </button>
-        </div>
-
-        <div id="reservasi-only" style="display: none;">
-          <div class="mb-3">
-            <label for="tgl-lahir" class="form-label">Tanggal Lahir</label>
-            <input type="date" class="form-control" id="tgl-lahir">
-            <div class="text-muted mt-2" id="preview-tgl-lahir"></div>
-          </div>
-          <div class="mb-3">
-            <label for="jenis-kelamin" class="form-label">Jenis Kelamin</label>
-            <select class="form-select" id="jenis-kelamin">
-              <option value="">-- Pilih Jenis Kelamin --</option>
-              <option>Laki-laki</option>
-              <option>Perempuan</option>
-            </select>
+        <div class="text-area">
+          <h2 class="mb-3">Aesel Reservasi 🇮🇩🇯🇵</h2>
+          <span>📌 Jasa Pendaftaran & Reservasi Ujian: JLPT | JFT | SSW</span>
+          <span>✅ Untuk peserta di Indonesia & Jepang</span>
+          <span>✅ Lebih dari 700 akun berhasil didaftarkan</span>
+          <span>✅ Cepat, aman, dan transparan</span>
+          <span style="margin-top: 6px">📩 Chat sekarang untuk reservasi resmi!</span>
+          <div class="social-row">
+            <a href="https://wa.me/6285353795801"><img src="icons/wa.png" alt="WhatsApp" /></a>
+            <a href="https://wa.me/62895346030735"><img src="icons/wa.png" alt="WhatsApp" /></a>
+            <a href="https://www.tiktok.com/@aeselReservasi"><img src="icons/tiktok.png" alt="TikTok" /></a>
+            <a href="https://www.facebook.com/aesel.ridwansyah"><img src="icons/facebook.png" alt="Facebook" /></a>
+            <a href="https://www.instagram.com/aesel_reservasi"><img src="icons/instagram.png" alt="Instagram" /></a>
+            <a href="https://www.youtube.com/@aeselreservasi"><img src="icons/youtube.png" alt="youtube" /></a>
           </div>
         </div>
-
-        <div class="mb-3">
-          <label class="form-label">Lokasi Ujian</label>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Bandung Andir"> Bandung Andir</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Bandung Astanaanyar"> Bandung Astanaanyar</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Pademangan"> Jakarta Pademangan</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Plaza Sentral"> Jakarta Plaza Sentral</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Satrio Tower A"> Jakarta Satrio Tower A</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Satrio Tower B"> Jakarta Satrio Tower B</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Timur"> Jakarta Timur</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Medan"> Medan</div>
+      </div>
+      <div class="mb-4">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped" id="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"></div>
+        </div>
+      </div>
+      <div class="step-container">
+        <div id="step1">
+          <form id="layanan-form">
+            <div class="mb-3">
+              <select class="form-select" id="layanan" required>
+                <option value="">-- Pilih Layanan --</option>
+                <option value="reservasi">Reservasi</option>
+                <option value="reschedule">Reschedule</option>
+              </select>
+              <div class="invalid-feedback">Wajib pilih layanan.</div>
             </div>
-            <div class="col-md-6">
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Semarang Banyumanik"> Semarang Banyumanik</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Semarang Tembalang"> Semarang Tembalang</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Yogyakarta Ngaglik"> Yogyakarta Ngaglik</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Yogyakarta UII"> Yogyakarta UII</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Surabaya"> Surabaya</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Manado"> Manado</div>
-              <div class="form-check"><input class="form-check-input" type="checkbox" name="lokasi" value="Denpasar"> Denpasar</div>
+            <button type="submit" class="btn btn-primary">Lanjut</button>
+          </form>
+        </div>
+        <div id="step2" style="display: none">
+          <form id="data-form" class="needs-validation" novalidate>
+            <input type="hidden" id="mode-layanan" />
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="nama" required />
+            </div>
+            <div class="mb-3">
+              <label for="telepon" class="form-label">Nomor WA</label>
+              <input type="tel" class="form-control" id="telepon" pattern="08[0-9]{8,11}" required />
+              <div class="invalid-feedback">Gunakan format: 08xxxxxxxxxx</div>
+            </div>
+            <div class="mb-3">
+              <label for="jenis-ujian" class="form-label">Jenis Ujian</label>
+              <select class="form-select" id="jenis-ujian" required>
+                <option value="">-- Pilih Jenis Ujian --</option>
+                <option value="JFT">JFT Basic A2</option>
+                <option value="PM">PM (Pengolahan Makanan)</option>
+                <option value="RESTO">RESTORAN</option>
+                <option value="KGINDO">Kaigo Indonesia</option>
+                <option value="KGJAPAN">Kaigo Jepang</option>
+                <option value="PERTANIAN">PERTANIAN</option>
+                <option value="PETERNAKAN">PETERNAKAN</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="id-prometrik" class="form-label">ID Prometric</label>
+              <input type="text" class="form-control" id="id-prometrik" pattern="JP[0-9]{7}" required />
+              <div class="invalid-feedback">Contoh: JP2190165</div>
+            </div>
+            <div class="mb-3 password-container">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" minlength="6" required />
+              <button type="button" id="toggle-password">
+                <i id="password-icon" class="bi bi-eye-slash"></i>
+              </button>
+            </div>
+            <div id="reservasi-only" style="display: none">
+              <div class="mb-3">
+                <label for="tgl-lahir" class="form-label">Tanggal Lahir</label>
+                <input type="date" class="form-control" id="tgl-lahir" />
+                <div class="text-muted mt-2" id="preview-tgl-lahir"></div>
+              </div>
+              <div class="mb-3">
+                <label for="jenis-kelamin" class="form-label">Jenis Kelamin</label>
+                <select class="form-select" id="jenis-kelamin">
+                  <option value="">-- Pilih Jenis Kelamin --</option>
+                  <option>Laki-laki</option>
+                  <option>Perempuan</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Lokasi Ujian</label>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Bandung Andir" />
+                    Bandung Andir
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Bandung Astanaanyar" />
+                    Bandung Astanaanyar
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Pademangan" />
+                    Jakarta Pademangan
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Plaza Sentral" />
+                    Jakarta Plaza Sentral
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Satrio Tower A" />
+                    Jakarta Satrio Tower A
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Satrio Tower B" />
+                    Jakarta Satrio Tower B
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Jakarta Timur" />
+                    Jakarta Timur
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Medan" />
+                    Medan
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Semarang Banyumanik" />
+                    Semarang Banyumanik
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Semarang Tembalang" />
+                    Semarang Tembalang
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Yogyakarta Ngaglik" />
+                    Yogyakarta Ngaglik
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Yogyakarta UII" />
+                    Yogyakarta UII
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Surabaya" />
+                    Surabaya
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Manado" />
+                    Manado
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="lokasi" value="Denpasar" />
+                    Denpasar
+                  </div>
+                </div>
+              </div>
+              <div class="invalid-feedback d-block" id="lokasi-error" style="display: none">Pilih minimal satu lokasi ujian.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tanggal Ujian</label>
+              <input type="date" class="form-control" id="tanggal-ujian" required />
+              <div class="text-muted mt-2" id="preview-tanggal"></div>
+              <div class="invalid-feedback d-block" id="tanggal-error" style="display: none">Pilih tanggal ujian.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Jam Ujian</label>
+              <select class="form-select" id="jam-ujian" required>
+                <option value="">-- Pilih Sesi Jam --</option>
+                <option value="09:15,10:00,10:45,11:30">Pagi (09:15, 10:00, 10:45, 11:30)</option>
+                <option value="12:15,13:00,13:45,14:30">Siang (12:15, 13:00, 13:45, 14:30)</option>
+                <option value="15:15,16:00,16:45,17:30">Sore (15:15, 16:00, 16:45, 17:30)</option>
+                <option value="15:15,16:00,16:45,17:30">Bebas (09:15, 10:00, 10:45, 11:30,12:15, 13:00, 13:45, 14:30,15:15, 16:00, 16:45, 17:30)</option>
+              </select>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" id="btn-back">Kembali</button>
+              <div>
+                <button type="button" class="btn btn-warning me-1 d-inline-flex align-items-center" id="btn-reset-data">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i>
+                  Reset Data
+                </button>
+                <button type="submit" class="btn btn-success">Kirim</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="step3" style="display: none">
+        <h4 class="mb-3 text-center">Pembayaran</h4>
+        <div class="alert alert-info">
+          Invoice telah dikirim ke WhatsApp admin.
+          <br />
+          Status saat ini:
+          <strong>Belum Bayar</strong>
+          .
+        </div>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title mb-3">Ringkasan Pendaftaran</h5>
+            <p class="mb-1">
+              <strong>Layanan:</strong>
+              <span id="summary-layanan"></span>
+            </p>
+            <p class="mb-1">
+              <strong>Nama:</strong>
+              <span id="summary-nama"></span>
+            </p>
+            <p class="mb-1">
+              <strong>Telepon:</strong>
+              <span id="summary-telepon"></span>
+            </p>
+            <p class="mb-1">
+              <strong>Jenis Ujian:</strong>
+              <span id="summary-jenis-ujian"></span>
+            </p>
+            <p class="mb-1">
+              <strong>Lokasi Ujian:</strong>
+              <span id="summary-lokasi"></span>
+            </p>
+            <p class="mb-1">
+              <strong>Tanggal Ujian:</strong>
+              <span id="summary-tanggal-ujian"></span>
+            </p>
+            <p class="mb-1">
+              <strong>Jam Ujian:</strong>
+              <span id="summary-jam-ujian"></span>
+            </p>
+            <hr />
+            <p class="mb-0 fs-5">
+              <strong>Total Bayar:</strong>
+              <span id="summary-total" class="text-success"></span>
+            </p>
+          </div>
+        </div>
+        <h6 class="mb-2">Metode Pembayaran</h6>
+        <div class="row g-2 mb-3">
+          <div class="col-12 col-md-4">
+            <button type="button" class="btn btn-outline-primary w-100 pay-method" data-method="bank">Transfer Bank</button>
+          </div>
+          <div class="col-12 col-md-4">
+            <button type="button" class="btn btn-outline-primary w-100 pay-method" data-method="ewallet">E-Wallet</button>
+          </div>
+          <div class="col-12 col-md-4">
+            <button type="button" class="btn btn-outline-primary w-100 pay-method" data-method="qris">QRIS</button>
+          </div>
+        </div>
+        <div id="payment-instruction" class="alert alert-secondary small">Pilih metode pembayaran untuk melihat instruksi pembayaran.</div>
+        <div class="d-flex justify-content-between mt-3">
+          <button type="button" class="btn btn-secondary" id="btn-back-to-form">Ubah data pendaftaran</button>
+        </div>
+      </div>
+      <div class="modal fade" id="resetModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Reset Data Pendaftaran</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+            </div>
+            <div class="modal-body">
+              <p class="mb-0">
+                Semua data yang sudah diisi pada formulir ini akan dihapus dan Anda akan kembali ke langkah awal (pilih layanan).
+                <br />
+                <br />
+                Yakin ingin mereset data dan mulai ulang?
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              <button type="button" class="btn btn-danger" id="btn-confirm-reset">Ya, reset data</button>
             </div>
           </div>
-          <div class="invalid-feedback d-block" id="lokasi-error" style="display:none;">Pilih minimal satu lokasi ujian.</div>
         </div>
-
-        <div class="mb-3">
-          <label class="form-label">Tanggal Ujian</label>
-          <input type="date" class="form-control" id="tanggal-ujian" required>
-          <div class="text-muted mt-2" id="preview-tanggal"></div>
-          <div class="invalid-feedback d-block" id="tanggal-error" style="display:none;">Pilih tanggal ujian.</div>
-        </div>
-
-        <!-- JAM UJIAN -->
-        <div class="mb-3">
-          <label class="form-label">Jam Ujian</label>
-          <select class="form-select" id="jam-ujian" required>
-            <option value="">-- Pilih Sesi Jam --</option>
-            <option value="09:15,10:00,10:45,11:30">Pagi (09:15, 10:00, 10:45, 11:30)</option>
-            <option value="12:15,13:00,13:45,14:30">Siang (12:15, 13:00, 13:45, 14:30)</option>
-            <option value="15:15,16:00,16:45,17:30">Sore (15:15, 16:00, 16:45, 17:30)</option>
-            <option value="15:15,16:00,16:45,17:30">Bebas (09:15, 10:00, 10:45, 11:30,12:15, 13:00, 13:45, 14:30,15:15, 16:00, 16:45, 17:30)</option>
-          </select>
-        </div>
-
-        <div class="d-flex justify-content-between">
-          <button type="button" class="btn btn-secondary" id="btn-back">Kembali</button>
-
-          <div>
-            <button type="button" class="btn btn-warning me-1 d-inline-flex align-items-center" id="btn-reset-data">
-              <i class="bi bi-arrow-counterclockwise me-1"></i>
-              Reset Data
-            </button>
-            <button type="submit" class="btn btn-success">Kirim</button>
-          </div>
-        </div>
-
-      </form>
-    </div>
-  </div>
-  <!-- STEP 3 – PEMBAYARAN -->
-  <div id="step3" style="display:none;">
-    <h4 class="mb-3 text-center">Pembayaran</h4>
-
-    <div class="alert alert-info">
-      Invoice telah dikirim ke WhatsApp admin.
-      <br>Status saat ini: <strong>Belum Bayar</strong>.
-    </div>
-
-    <!-- Ringkasan Pendaftaran -->
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title mb-3">Ringkasan Pendaftaran</h5>
-        <p class="mb-1"><strong>Layanan:</strong> <span id="summary-layanan"></span></p>
-        <p class="mb-1"><strong>Nama:</strong> <span id="summary-nama"></span></p>
-        <p class="mb-1"><strong>Telepon:</strong> <span id="summary-telepon"></span></p>
-        <p class="mb-1"><strong>Jenis Ujian:</strong> <span id="summary-jenis-ujian"></span></p>
-        <p class="mb-1"><strong>Lokasi Ujian:</strong> <span id="summary-lokasi"></span></p>
-        <p class="mb-1"><strong>Tanggal Ujian:</strong> <span id="summary-tanggal-ujian"></span></p>
-        <p class="mb-1"><strong>Jam Ujian:</strong> <span id="summary-jam-ujian"></span></p>
-        <hr>
-        <p class="mb-0 fs-5">
-          <strong>Total Bayar:</strong>
-          <span id="summary-total" class="text-success"></span>
-        </p>
       </div>
     </div>
-
-    <!-- Metode Pembayaran -->
-    <h6 class="mb-2">Metode Pembayaran</h6>
-    <div class="row g-2 mb-3">
-      <div class="col-12 col-md-4">
-        <button type="button" class="btn btn-outline-primary w-100 pay-method" data-method="bank">
-          Transfer Bank
-        </button>
-      </div>
-      <div class="col-12 col-md-4">
-        <button type="button" class="btn btn-outline-primary w-100 pay-method" data-method="ewallet">
-          E-Wallet
-        </button>
-      </div>
-      <div class="col-12 col-md-4">
-        <button type="button" class="btn btn-outline-primary w-100 pay-method" data-method="qris">
-          QRIS
-        </button>
-      </div>
-    </div>
-
-    <div id="payment-instruction" class="alert alert-secondary small">
-      Pilih metode pembayaran untuk melihat instruksi pembayaran.
-    </div>
-
-    <div class="d-flex justify-content-between mt-3">
-      <button type="button" class="btn btn-secondary" id="btn-back-to-form">
-        Ubah data pendaftaran
-      </button>
-      <button type="button" class="btn btn-success" id="btn-kirim-lunas">
-        Kirim Status Lunas via WhatsApp
-      </button>
-    </div>
-  </div>
-
-<!-- Modal Konfirmasi Reset -->
-<div class="modal fade" id="resetModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Reset Data Pendaftaran</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-      </div>
-      <div class="modal-body">
-        <p class="mb-0">
-          Semua data yang sudah diisi pada formulir ini akan dihapus dan Anda akan kembali ke langkah awal (pilih layanan).
-          <br><br>
-          Yakin ingin mereset data dan mulai ulang?
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-danger" id="btn-confirm-reset">Ya, reset data</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"></script>
-<script>
-  const SUPABASE_URL = 'https://yuwfecfaoouylnzsdlnr.supabase.co';       
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl1d2ZlY2Zhb291eWxuenNkbG5yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwNDk1NDksImV4cCI6MjA3OTYyNTU0OX0.L1qJlQqHQyQskTk04GSg7CowfaG4NmVhaGc02htONoY';
-  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-</script>
-<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-mPPV977bIGeSEC5X"></script>
-<script src="script.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"></script>
+    <script>
+      const SUPABASE_URL = "https://yuwfecfaoouylnzsdlnr.supabase.co";
+      const SUPABASE_ANON_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl1d2ZlY2Zhb291eWxuenNkbG5yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwNDk1NDksImV4cCI6MjA3OTYyNTU0OX0.L1qJlQqHQyQskTk04GSg7CowfaG4NmVhaGc02htONoY";
+      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-mPPV977bIGeSEC5X"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
