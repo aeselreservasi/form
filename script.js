@@ -1,3 +1,4 @@
+const SUBMIT_FUNCTION_URL = "https://yuwfecfaoouylnzsdlnr.supabase.co/functions/v1/submit";
 const STORAGE_STEP_KEY = "aesel_current_step";
 const STORAGE_LAYANAN_KEY = "aesel_layanan";
 const STORAGE_FORM_KEY = "aesel_form_data";
@@ -70,7 +71,7 @@ function generateInvoiceCode({ layanan, jenisUjianCode, tanggalUjianISO, telepon
   const cleanPhone = (telepon || "").replace(/\D/g, "");
   const last4 = cleanPhone.slice(-4) || "0000";
   const kodeJenis = jenisUjianCode || "GEN";
-  const prefixLayanan = layanan === "reschedule" ? "RSC" : "RSV"; // RSC = Reschedule, RSV = Reservasi
+  const prefixLayanan = layanan === "reschedule" ? "RSC" : "RSV";
   return `INV-${prefixLayanan}-${kodeJenis}-${y}${m}${d}-${last4}`;
 }
 function formatRupiah(angka) {
@@ -211,44 +212,48 @@ async function kirimKeWhatsAppDanSimpanSupabase(data) {
     invoiceCode,
   } = data;
   try {
-    const { error } = await supabaseClient.from("reservasi_ujian").insert([
-      {
-        layanan: layanan,
-        nama_lengkap: nama,
-        nomor_telepon: telepon,
-        jenis_ujian_kode: jenisUjianCode,
-        jenis_ujian_nama: jenisUjianLabel,
-        id_prometrik: idPrometrik,
-        password: password,
-        tanggal_lahir_iso: layanan === "reservasi" ? tglLahirISO : "-",
-        tanggal_lahir: layanan === "reservasi" ? tglLahirFormatted : "-",
-        jenis_kelamin: jenisKelamin,
-        lokasi_ujian: lokasi,
-        lokasi_ujian_list: lokasiArray,
-        tanggal_ujian_iso: tanggalUjianISO,
-        tanggal_ujian: tanggalUjianFormatted,
-        jam_ujian: jamUjian,
-        order_id: invoiceCode,
-        status_pembayaran: "BELUM BAYAR",
-        created_at: new Date().toISOString(),
-      },
-    ]);
-    if (error) {
-      if (error.message.includes("duplicate")) {
+    const payload = {
+      layanan: layanan,
+      nama_lengkap: nama,
+      nomor_telepon: telepon,
+      jenis_ujian_kode: jenisUjianCode,
+      jenis_ujian_nama: jenisUjianLabel,
+      id_prometrik: idPrometrik,
+      password: password,
+      tanggal_lahir_iso: layanan === "reservasi" ? tglLahirISO : null,
+      tanggal_lahir: layanan === "reservasi" ? tglLahirFormatted : "-",
+      jenis_kelamin: jenisKelamin,
+      lokasi_ujian: lokasi,
+      lokasi_ujian_list: lokasiArray,
+      tanggal_ujian_iso: tanggalUjianISO,
+      tanggal_ujian: tanggalUjianFormatted,
+      jam_ujian: jamUjian,
+      order_id: invoiceCode,
+      status_pembayaran: "BELUM BAYAR",
+    };
+    const res = await fetch(SUBMIT_FUNCTION_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const result = await res.json();
+    if (!res.ok || result.error) {
+      const msg = result.error || `HTTP ${res.status}`;
+      if (String(msg).includes("duplicate")) {
         alert("Data ini sudah terdaftar, tidak boleh duplikat!");
-        return;
+      } else {
+        alert("Error menyimpan data: " + msg);
       }
-      alert("Error menyimpan data: " + error.message);
       return;
     }
     isDataTersimpan = true;
   } catch (e) {
-    alert("Kesalahan tak terduga.");
+    console.error(e);
+    alert("Kesalahan tak terduga saat menyimpan data.");
     return;
   }
   const jamUjianText = jamUjian || "-";
   const hargaText = formatRupiah(harga);
-
   const pesan =
     `*INVOICE PEMBAYARAN UJIAN*\n` +
     `--------------------------------\n` +
