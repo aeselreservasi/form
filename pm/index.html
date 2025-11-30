@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="robots" content="none" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-icons.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.v5.3.0.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/tempus-dominus.min.css" /> -->
+
+    <link rel="stylesheet" href="css/style_pr_responsive.css" />
+    <title>Pilihan Tempat Ujian dan Tanggal</title>
+  </head>
+  <body>
+    <div class="container-fluid custom-header">
+      <div class="container d-flex justify-content-between">
+        <div>
+          <img src="prometric_logo.jpg" alt="Prometric" class="custom-header-logo" />
+        </div>
+        <div>
+          <button class="btn btn-teriary" type="button" name="Logout" onclick="javascript:Cancel()">
+            <!-- <i class="bi bi-box-arrow-right"></i> -->
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="title-default-block">
+      <h1>Pilihan Tempat Ujian dan Tanggal</h1>
+    </div>
+
+    <div class="container-fluid page-wrapper">
+      <h3>Kriteria Pencarian</h3>
+      <form name="form" id="searchForm" method="post">
+        <input type="hidden" name="isReloaded" value="" />
+
+        <!-- TANGGAL UJIAN -->
+        <div class="row mb-3">
+          <label for="exam_day_y" class="form-label">Tanggal ujian</label>
+          <div class="d-flex">
+            <div class="col-md-2 me-2">
+              <input type="text" class="form-control" name="exam_day_y" id="exam_day_y" placeholder="Tahun" />
+            </div>
+            <div class="col-md-2 me-2">
+              <input type="text" class="form-control" name="exam_day_m" id="exam_day_m" placeholder="Bulan" />
+            </div>
+            <div class="col-md-2 me-2">
+              <input type="text" class="form-control" name="exam_day_d" id="exam_day_d" placeholder="Tanggal" />
+            </div>
+            <div class="calendarbuttonwrapper" id="datetimepicker1">
+              <i class="bi bi-calendar3" id="fullDatepicker" title="Klik untuk melihat kalender"></i>
+              <!-- 📅 -->
+            </div>
+          </div>
+          <div class="inline-baloon-wrapper">
+            <div class="inline-baloon">
+              <span class="inline-arrow"></span>
+              <p class="examday-note">
+                Periode Reservasi yang Tersedia:
+                <span class="text-danger fw-bold">2026/02/01 s/d 2026/03/10</span>
+              </p>
+            </div>
+          </div>
+          <input type="hidden" name="calendar_end" value="2025/11/30" />
+          <input type="hidden" name="calendar_end_y" value="2025" />
+          <input type="hidden" name="calendar_end_m" value="11" />
+          <input type="hidden" name="calendar_end_d" value="30" />
+        </div>
+
+        <!-- CBT / IBT -->
+        <div class="mb-3" id="proctorRadioTR" style="display: none">
+          <label class="form-label">CBT/IBT</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="test_center" name="examMethod" value="TestCenter" checked />
+            <label class="form-check-label" for="test_center">CBT/Tempat Ujian</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="proctor" name="examMethod" value="Proctor" />
+            <label class="form-check-label" for="proctor">IBT/Online(ProProctor®︎)</label>
+          </div>
+        </div>
+
+        <!-- NEGARA -->
+        <div class="row mb-3" id="countryTR">
+          <div class="col-md-6 col-sm-12">
+            <label class="form-label">Negara</label>
+            <select class="form-select" name="countryCode" id="countryCode" onchange="ChangeAreaSelectBox()">
+              <option value="" selected></option>
+              <option value="ID">Indonesia</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- WILAYAH -->
+        <div class="row mb-3" id="areaTR">
+          <div class="col-md-6 col-sm-12">
+            <label class="form-label">Wilayah</label>
+            <select class="form-select" name="areaCode" id="areaCode">
+              <option value="" selected></option>
+              <option value="YOG">Yogyakarta</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- NAMA TEMPAT -->
+        <div class="row mb-3" id="placeNameTR">
+          <div class="col-md-6 col-sm-12">
+            <label class="form-label">Nama Tempat</label>
+            <input type="text" class="form-control" name="placeName" id="placeName" placeholder="Misal: Bandung" />
+          </div>
+        </div>
+
+        <!-- TOMBOL CARI -->
+        <div class="serchplace-button">
+          <button type="button" class="btn btn-primary btn-lg w-100" id="serchplacebutton" name="search" onclick="reload();">
+            <i class="bi bi-search"></i>
+            Cari
+          </button>
+        </div>
+
+        <!-- TOMBOL KEMBALI (ATAS) -->
+        <div>
+          <button class="btn btn-secondary wid-180 margin-t-large" type="button" name="Return" onclick="location.href='/pm/index.html'">
+            <i class="bi bi-caret-left-fill"></i>
+            Kembali
+          </button>
+        </div>
+
+        <!-- HIDDEN CALENDAR START -->
+        <input type="hidden" id="calendar_start" name="calendar_start" value="2025/12/04" />
+        <input type="hidden" id="calendar_start_y" name="calendar_start_y" value="2025" />
+        <input type="hidden" id="calendar_start_m" name="calendar_start_m" value="12" />
+        <input type="hidden" id="calendar_start_d" name="calendar_start_d" value="04" />
+      </form>
+
+      <!-- HASIL PENCARIAN DARI SUPABASE -->
+      <div id="searchResult" class="mt-4"></div>
+    </div>
+
+    <div class="container-fluid custom-footer">
+      <footer>
+        <p class="copyright-text">© Prometric, ALL RIGHTS RESERVED.</p>
+      </footer>
+    </div>
+
+    <!-- Supabase JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Script utama -->
+    <script src="script.js"></script>
+  </body>
+</html>
