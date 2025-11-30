@@ -21,7 +21,8 @@ function joukyo_1(code) {
 }
 
 function click_next(placeCode, time, seatFlag) {
-  alert("Anda memilih:\nTempat: " + placeCode + "\nJam mulai: " + time + "\nSeatFlag: " + seatFlag);
+  // arahkan user ke website tujuan
+  window.location.href = "https://aesel.web.id";
 }
 
 // ==== UTIL ====
@@ -209,3 +210,4 @@ async function reload() {
 
   resultDiv.innerHTML = html;
 }
+
