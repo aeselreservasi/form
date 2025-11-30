@@ -14,6 +14,22 @@ const resources = [
     ],
   },
   {
+    title: "SSW PM",
+    items: [
+      { label: "Modul Restoran", url: "https://drive.google.com/drive/folders/1rgBE11nxsqSzOCw3xMASmuphz5AFhPhn" },
+      { label: "Kotoba, Kanji Restoran", url: "https://drive.google.com/drive/folders/1ZGuG5OnrCxdB-K7CoSwrnxKiuBKCNm_f" },
+      { label: "Latihan Soal", url: "https://drive.google.com/drive/folders/1rRX385YycYjM75sj6n1xAWVcuZ10w6DW" },
+    ],
+  },
+  {
+    title: "SSW Restoran",
+    items: [
+      { label: "Modul Restoran", url: "https://drive.google.com/drive/folders/1vWEDtKDbLc3ElWv0I0iMwqsWgSX-aYmP" },
+      { label: "Kotoba, Kanji Restoran", url: "https://drive.google.com/drive/folders/1xj0WCLdfpHzdyCUF1UxDFPqP6isyWV5p" },
+      { label: "Latihan Soal", url: "https://drive.google.com/drive/folders/18djure8A0fNAOLdj4FTnt8RHG91u635p" },
+    ],
+  },
+  {
     title: "SSW Pertanian & Perternakan",
     items: [
       { label: "Modul ASAT", url: "https://drive.google.com/drive/folders/1XJNVe9qWLinKbYpkTG595dy28EDuy3AF" },
@@ -22,6 +38,7 @@ const resources = [
     ],
   },
 ];
+
 const socialRow = document.getElementById("social-row");
 socials.forEach((s) => {
   const a = document.createElement("a");
