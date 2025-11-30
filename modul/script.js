@@ -44,6 +44,7 @@ socials.forEach((s) => {
   const a = document.createElement("a");
   a.href = s.url;
   a.target = "_blank";
+  a.rel = "noopener noreferrer";
   a.className = "social-icon";
   a.innerHTML = `<img src="${s.icon}" alt="icon">`;
   socialRow.appendChild(a);
@@ -56,6 +57,8 @@ resources.forEach((section) => {
   section.items.forEach((item) => {
     const link = document.createElement("a");
     link.href = item.url;
+    link.target = "_blank"; // << Buka tab baru
+    link.rel = "noopener noreferrer"; // << Keamanan
     link.className = "btn";
     link.textContent = item.label;
     linksContainer.appendChild(link);
