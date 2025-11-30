@@ -1,7 +1,9 @@
 const SUBMIT_FUNCTION_URL = "https://yuwfecfaoouylnzsdlnr.supabase.co/functions/v1/submit";
+
 const STORAGE_STEP_KEY = "aesel_current_step";
 const STORAGE_LAYANAN_KEY = "aesel_layanan";
 const STORAGE_FORM_KEY = "aesel_form_data";
+
 const layananForm = document.getElementById("layanan-form");
 const step1 = document.getElementById("step1");
 const step2 = document.getElementById("step2");
@@ -9,23 +11,28 @@ const step3 = document.getElementById("step3");
 const modeLayanan = document.getElementById("mode-layanan");
 const reservasiFields = document.getElementById("reservasi-only");
 const progressBar = document.getElementById("progress-bar");
+
 const tanggalInput = document.getElementById("tanggal-ujian");
 const previewTanggal = document.getElementById("preview-tanggal");
 const tglLahirInput = document.getElementById("tgl-lahir");
 const previewTglLahir = document.getElementById("preview-tgl-lahir");
+
 const btnBack = document.getElementById("btn-back");
 const btnResetData = document.getElementById("btn-reset-data");
 const resetModalEl = document.getElementById("resetModal");
 const btnConfirmReset = document.getElementById("btn-confirm-reset");
 const resetModal = resetModalEl ? new bootstrap.Modal(resetModalEl) : null;
+
 const togglePasswordBtn = document.getElementById("toggle-password");
 const passwordField = document.getElementById("password");
 const passwordIcon = document.getElementById("password-icon");
+
 const lokasiError = document.getElementById("lokasi-error");
 const tanggalError = document.getElementById("tanggal-error");
 const paymentInstruction = document.getElementById("payment-instruction");
 const payMethodButtons = document.querySelectorAll(".pay-method");
 const btnBackToForm = document.getElementById("btn-back-to-form");
+
 const summaryLayanan = document.getElementById("summary-layanan");
 const summaryNama = document.getElementById("summary-nama");
 const summaryTelepon = document.getElementById("summary-telepon");
@@ -34,21 +41,29 @@ const summaryLokasi = document.getElementById("summary-lokasi");
 const summaryTanggalUjian = document.getElementById("summary-tanggal-ujian");
 const summaryJamUjian = document.getElementById("summary-jam-ujian");
 const summaryTotal = document.getElementById("summary-total");
+
+const statusPembayaranEl = document.getElementById("status-pembayaran");
+
 let lastFormData = null;
 let isDataTersimpan = false;
+
 function saveStep(stepNumber) {
   sessionStorage.setItem(STORAGE_STEP_KEY, String(stepNumber));
   sessionStorage.setItem(STORAGE_LAYANAN_KEY, modeLayanan.value || "");
 }
+
 function transitionStep(fromStep, toStep, progress, stepNumber) {
   if (fromStep) fromStep.style.display = "none";
   if (toStep) toStep.style.display = "block";
+
   progressBar.style.width = progress + "%";
   progressBar.setAttribute("aria-valuenow", progress);
+
   if (stepNumber !== undefined) {
     saveStep(stepNumber);
   }
 }
+
 const hargaPerJenis = {
   JFT: 650000,
   PM: 550000,
@@ -59,24 +74,31 @@ const hargaPerJenis = {
   PETERNAKAN: 550000,
 };
 const HARGA_RESCHEDULE = 50000;
+
 function getHarga(layanan, jenisKode) {
   if (layanan === "reschedule") return HARGA_RESCHEDULE;
   return hargaPerJenis[jenisKode] || 650000;
 }
+
 function generateInvoiceCode({ layanan, jenisUjianCode, tanggalUjianISO, telepon }) {
   const now = new Date();
   const y = now.getFullYear();
   const m = String(now.getMonth() + 1).padStart(2, "0");
   const d = String(now.getDate()).padStart(2, "0");
+
   const cleanPhone = (telepon || "").replace(/\D/g, "");
   const last4 = cleanPhone.slice(-4) || "0000";
   const kodeJenis = jenisUjianCode || "GEN";
   const prefixLayanan = layanan === "reschedule" ? "RSC" : "RSV";
+
   return `INV-${prefixLayanan}-${kodeJenis}-${y}${m}${d}-${last4}`;
 }
+
 function formatRupiah(angka) {
   return "Rp " + (angka || 0).toLocaleString("id-ID");
 }
+
+/* STEP 1: pilih layanan */
 layananForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const layanan = document.getElementById("layanan").value;
@@ -85,8 +107,10 @@ layananForm.addEventListener("submit", (e) => {
     return;
   }
   document.getElementById("layanan").classList.remove("is-invalid");
+
   modeLayanan.value = layanan;
   saveFormDataToStorage();
+
   if (layanan === "reservasi") {
     reservasiFields.style.display = "block";
     tglLahirInput.setAttribute("required", "required");
@@ -96,9 +120,13 @@ layananForm.addEventListener("submit", (e) => {
     tglLahirInput.removeAttribute("required");
     document.getElementById("jenis-kelamin").removeAttribute("required");
   }
+
   transitionStep(step1, step2, 50, 2);
 });
+
 btnBack.addEventListener("click", () => transitionStep(step2, step1, 0, 1));
+
+/* toggle password */
 togglePasswordBtn.addEventListener("click", () => {
   if (passwordField.type === "password") {
     passwordField.type = "text";
@@ -108,6 +136,8 @@ togglePasswordBtn.addEventListener("click", () => {
     passwordIcon.classList.replace("bi-eye", "bi-eye-slash");
   }
 });
+
+/* helper tanggal */
 function formatTanggalIndo(isoDate) {
   if (!isoDate) return "";
   const bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
@@ -115,38 +145,51 @@ function formatTanggalIndo(isoDate) {
   const tanggal = String(d).padStart(2, "0");
   return `${tanggal} ${bulan[parseInt(m) - 1]} ${y}`;
 }
+
 tanggalInput.addEventListener("input", () => {
   const formatted = formatTanggalIndo(tanggalInput.value);
   previewTanggal.textContent = formatted ? `📅 Tanggal ujian: ${formatted}` : "";
 });
+
 tglLahirInput.addEventListener("input", () => {
   const formatted = formatTanggalIndo(tglLahirInput.value);
   previewTglLahir.textContent = formatted ? `🎂 Tanggal lahir: ${formatted}` : "";
 });
+
+/* lokasi */
 function getLokasiTerpilih() {
   return Array.from(document.querySelectorAll('input[name="lokasi"]:checked')).map((el) => el.value);
 }
+
+/* auto-save ke sessionStorage */
 ["nama", "telepon", "jenis-ujian", "id-prometrik", "password", "tgl-lahir", "jenis-kelamin", "tanggal-ujian", "jam-ujian"].forEach((id) => {
   const el = document.getElementById(id);
   if (!el) return;
   const ev = el.tagName === "SELECT" || el.type === "date" ? "change" : "input";
   el.addEventListener(ev, saveFormDataToStorage);
 });
+
 document.querySelectorAll('input[name="lokasi"]').forEach((cb) => {
   cb.addEventListener("change", saveFormDataToStorage);
 });
+
+/* STEP 2: submit data */
 document.getElementById("data-form").addEventListener("submit", async (event) => {
   event.preventDefault();
   const form = event.target;
+
   const lokasiArray = getLokasiTerpilih();
   const lokasiChecked = lokasiArray.length;
   const tanggal = tanggalInput.value;
+
   lokasiError.style.display = lokasiChecked > 0 ? "none" : "block";
   tanggalError.style.display = tanggal ? "none" : "block";
+
   if (!form.checkValidity() || lokasiChecked === 0 || !tanggal) {
     form.classList.add("was-validated");
     return false;
   }
+
   const layanan = modeLayanan.value;
   const nama = document.getElementById("nama").value.trim();
   const telepon = document.getElementById("telepon").value;
@@ -155,15 +198,25 @@ document.getElementById("data-form").addEventListener("submit", async (event) =>
   const jenisUjianLabel = jenisUjianSelect.options[jenisUjianSelect.selectedIndex].text;
   const idPrometrik = document.getElementById("id-prometrik").value;
   const password = document.getElementById("password").value;
+
   const tglLahirISO = tglLahirInput.value;
   const tglLahirFormatted = tglLahirISO ? formatTanggalIndo(tglLahirISO) : null;
   const jenisKelamin = document.getElementById("jenis-kelamin")?.value || null;
+
   const tanggalUjianISO = tanggalInput.value;
   const tanggalUjianFormatted = formatTanggalIndo(tanggalUjianISO);
+
   const jamUjian = document.getElementById("jam-ujian").value || null;
+
   const lokasi = lokasiArray.join(", ");
   const harga = getHarga(layanan, jenisUjianCode);
-  const invoiceCode = generateInvoiceCode({ layanan, jenisUjianCode, tanggalUjianISO, telepon });
+  const invoiceCode = generateInvoiceCode({
+    layanan,
+    jenisUjianCode,
+    tanggalUjianISO,
+    telepon,
+  });
+
   const formData = {
     layanan,
     nama,
@@ -183,14 +236,24 @@ document.getElementById("data-form").addEventListener("submit", async (event) =>
     harga,
     invoiceCode,
   };
+
   lastFormData = formData;
   sessionStorage.setItem(STORAGE_FORM_KEY, JSON.stringify(formData));
   isDataTersimpan = false;
+
   await kirimKeWhatsAppDanSimpanSupabase(formData);
+
   isiRingkasanPembayaran(formData);
+  if (statusPembayaranEl) statusPembayaranEl.textContent = "BELUM BAYAR";
+
   transitionStep(step2, step3, 100, 3);
+
+  // optional: langsung cek status terbaru setelah insert
+  refreshStatusPembayaran();
+
   return false;
 });
+
 async function kirimKeWhatsAppDanSimpanSupabase(data) {
   const {
     layanan,
@@ -211,8 +274,10 @@ async function kirimKeWhatsAppDanSimpanSupabase(data) {
     harga,
     invoiceCode,
   } = data;
+
   try {
     const payload = {
+      action: "submit",
       layanan: layanan,
       nama_lengkap: nama,
       nomor_telepon: telepon,
@@ -231,12 +296,15 @@ async function kirimKeWhatsAppDanSimpanSupabase(data) {
       order_id: invoiceCode,
       status_pembayaran: "BELUM BAYAR",
     };
+
     const res = await fetch(SUBMIT_FUNCTION_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
+
     const result = await res.json();
+
     if (!res.ok || result.error) {
       const msg = result.error || `HTTP ${res.status}`;
       if (String(msg).includes("duplicate")) {
@@ -246,14 +314,17 @@ async function kirimKeWhatsAppDanSimpanSupabase(data) {
       }
       return;
     }
+
     isDataTersimpan = true;
   } catch (e) {
     console.error(e);
     alert("Kesalahan tak terduga saat menyimpan data.");
     return;
   }
+
   const jamUjianText = jamUjian || "-";
   const hargaText = formatRupiah(harga);
+
   const pesan =
     `*INVOICE PEMBAYARAN UJIAN*\n` +
     `--------------------------------\n` +
@@ -276,16 +347,21 @@ async function kirimKeWhatsAppDanSimpanSupabase(data) {
     `\n*Instruksi Pembayaran*\n` +
     `Silakan lakukan pembayaran sesuai total di atas.\n` +
     `Setelah pembayaran, kirim *bukti transfer* dan *kode invoice* ini ke admin.\n`;
+
   const waUrl = `https://wa.me/62895346030735?text=${encodeURIComponent(pesan)}`;
   window.open(waUrl, "_blank");
 }
+
+/* ringkasan */
 function isiRingkasanPembayaran(data) {
   const { layanan, nama, telepon, jenisUjianLabel, lokasi, tanggalUjianFormatted, jamUjian, harga } = data;
+
   if (layanan === "reservasi") {
     summaryLayanan.innerHTML = '<span class="badge bg-primary">Reservasi</span>';
   } else {
     summaryLayanan.innerHTML = '<span class="badge bg-warning text-dark">Reschedule (Biaya admin Rp 50.000)</span>';
   }
+
   summaryNama.textContent = nama;
   summaryTelepon.textContent = telepon;
   summaryJenisUjian.textContent = jenisUjianLabel;
@@ -294,6 +370,61 @@ function isiRingkasanPembayaran(data) {
   summaryJamUjian.textContent = jamUjian || "-";
   summaryTotal.textContent = formatRupiah(harga);
 }
+
+/* cek status pembayaran dari Supabase */
+async function refreshStatusPembayaran() {
+  const savedRaw = sessionStorage.getItem(STORAGE_FORM_KEY);
+  if (!savedRaw) return;
+
+  let saved;
+  try {
+    saved = JSON.parse(savedRaw);
+  } catch (e) {
+    console.error("Gagal parse STORAGE_FORM_KEY", e);
+    return;
+  }
+
+  if (!saved.invoiceCode) return;
+
+  try {
+    const res = await fetch(SUBMIT_FUNCTION_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        action: "get_status",
+        order_id: saved.invoiceCode,
+      }),
+    });
+
+    const result = await res.json();
+
+    if (!res.ok || result.error) {
+      console.warn("Gagal ambil status pembayaran:", result.error || res.status);
+      return;
+    }
+
+    let status = (result.status_pembayaran || "BELUM BAYAR").toUpperCase();
+
+    // mapping status dari DB/Midtrans ke bahasa user
+    if (status === "SETTLEMENT") {
+      status = "LUNAS";
+    } else if (status === "PENDING") {
+      status = "MENUNGGU PEMBAYARAN";
+    } else if (status === "CANCEL" || status === "CANCELLED") {
+      status = "DIBATALKAN";
+    } else if (status === "EXPIRE" || status === "EXPIRED") {
+      status = "KADALUARSA";
+    }
+
+    if (statusPembayaranEl) {
+      statusPembayaranEl.textContent = status;
+    }
+  } catch (e) {
+    console.error("Error saat refresh status pembayaran", e);
+  }
+}
+
+/* metode pembayaran */
 payMethodButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     payMethodButtons.forEach((b) => b.classList.remove("active"));
@@ -302,8 +433,10 @@ payMethodButtons.forEach((btn) => {
     updatePaymentInstruction(method);
   });
 });
+
 function updatePaymentInstruction(method) {
   if (!paymentInstruction) return;
+
   if (method === "bank") {
     paymentInstruction.innerHTML =
       "<strong>Transfer Bank</strong><br>" +
@@ -333,12 +466,15 @@ function updatePaymentInstruction(method) {
     paymentInstruction.textContent = "Pilih metode pembayaran untuk melihat instruksi pembayaran.";
   }
 }
+
+/* reset data */
 function resetAllData() {
   sessionStorage.removeItem(STORAGE_STEP_KEY);
   sessionStorage.removeItem(STORAGE_LAYANAN_KEY);
   sessionStorage.removeItem(STORAGE_FORM_KEY);
   lastFormData = null;
   isDataTersimpan = false;
+
   document.getElementById("layanan").value = "";
   modeLayanan.value = "";
   document.getElementById("nama").value = "";
@@ -351,20 +487,26 @@ function resetAllData() {
   if (jkEl) jkEl.value = "";
   tanggalInput.value = "";
   document.getElementById("jam-ujian").value = "";
+
   document.querySelectorAll('input[name="lokasi"]').forEach((cb) => {
     cb.checked = false;
   });
+
   previewTanggal.textContent = "";
   previewTglLahir.textContent = "";
   lokasiError.style.display = "none";
   tanggalError.style.display = "none";
+
   const dataForm = document.getElementById("data-form");
   if (dataForm) dataForm.classList.remove("was-validated");
+
   step1.style.display = "block";
   step2.style.display = "none";
   step3.style.display = "none";
+
   progressBar.style.width = "0%";
   progressBar.setAttribute("aria-valuenow", "0");
+
   if (summaryLayanan) summaryLayanan.textContent = "";
   if (summaryNama) summaryNama.textContent = "";
   if (summaryTelepon) summaryTelepon.textContent = "";
@@ -373,23 +515,30 @@ function resetAllData() {
   if (summaryTanggalUjian) summaryTanggalUjian.textContent = "";
   if (summaryJamUjian) summaryJamUjian.textContent = "";
   if (summaryTotal) summaryTotal.textContent = "";
+
+  if (statusPembayaranEl) statusPembayaranEl.textContent = "BELUM BAYAR";
 }
+
 if (btnResetData && resetModal) {
   btnResetData.addEventListener("click", () => {
     resetModal.show();
   });
 }
+
 if (btnConfirmReset && resetModal) {
   btnConfirmReset.addEventListener("click", () => {
     resetAllData();
     resetModal.hide();
   });
 }
+
 if (btnBackToForm) {
   btnBackToForm.addEventListener("click", () => {
     transitionStep(step3, step2, 50, 2);
   });
 }
+
+/* simpan form ke storage */
 function saveFormDataToStorage() {
   const lokasiArray = getLokasiTerpilih();
   const data = {
@@ -405,39 +554,51 @@ function saveFormDataToStorage() {
     jamUjian: document.getElementById("jam-ujian").value || "",
     lokasiArray: lokasiArray,
   };
+
   sessionStorage.setItem(STORAGE_FORM_KEY, JSON.stringify(data));
 }
+
+/* restore state dari sessionStorage */
 (function restoreState() {
   const savedRaw = sessionStorage.getItem(STORAGE_FORM_KEY);
   let saved = null;
+
   if (savedRaw) {
     try {
       saved = JSON.parse(savedRaw);
+
       if (saved.layanan) {
         document.getElementById("layanan").value = saved.layanan;
         modeLayanan.value = saved.layanan;
       }
+
       document.getElementById("nama").value = saved.nama || "";
       document.getElementById("telepon").value = saved.telepon || "";
       document.getElementById("jenis-ujian").value = saved.jenisUjianCode || "";
       document.getElementById("id-prometrik").value = saved.idPrometrik || "";
       passwordField.value = saved.password || "";
       tglLahirInput.value = saved.tglLahirISO || "";
+
       const jkEl = document.getElementById("jenis-kelamin");
       if (jkEl && saved.jenisKelamin) jkEl.value = saved.jenisKelamin;
+
       tanggalInput.value = saved.tanggalUjianISO || "";
       document.getElementById("jam-ujian").value = saved.jamUjian || "";
+
       if (Array.isArray(saved.lokasiArray)) {
         document.querySelectorAll('input[name="lokasi"]').forEach((cb) => {
           cb.checked = saved.lokasiArray.includes(cb.value);
         });
       }
+
       if (saved.tanggalUjianISO) {
         previewTanggal.textContent = `📅 Tanggal ujian: ${formatTanggalIndo(saved.tanggalUjianISO)}`;
       }
+
       if (saved.tglLahirISO) {
         previewTglLahir.textContent = `🎂 Tanggal lahir: ${formatTanggalIndo(saved.tglLahirISO)}`;
       }
+
       if (saved.layanan === "reservasi") {
         reservasiFields.style.display = "block";
         tglLahirInput.setAttribute("required", "required");
@@ -451,7 +612,9 @@ function saveFormDataToStorage() {
       console.warn("Gagal parse form dari storage", e);
     }
   }
+
   const savedStep = sessionStorage.getItem(STORAGE_STEP_KEY);
+
   if (savedStep === "2") {
     step1.style.display = "none";
     step2.style.display = "block";
@@ -464,9 +627,12 @@ function saveFormDataToStorage() {
     step3.style.display = "block";
     progressBar.style.width = "100%";
     progressBar.setAttribute("aria-valuenow", "100");
+
     if (saved && saved.invoiceCode) {
       lastFormData = saved;
       isiRingkasanPembayaran(saved);
+      if (statusPembayaranEl) statusPembayaranEl.textContent = "BELUM BAYAR";
+      refreshStatusPembayaran();
     }
   } else {
     step1.style.display = "block";
