@@ -1,11 +1,14 @@
-// === KONFIGURASI SUPABASE ===
-const { createClient } = supabase;
+async function fetchJadwal(tanggalStr) {
+  const res = await fetch("https://ixliuzdqfqheouthgupw.supabase.co/functions/v1/jadwal", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ exam_date: tanggalStr }),
+  });
 
-const SUPABASE_URL = "https://ixliuzdqfqheouthgupw.supabase.co"; // contoh: https://xxxx.supabase.co
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml4bGl1emRxZnFoZW91dGhndXB3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0MjM3OTYsImV4cCI6MjA3OTk5OTc5Nn0.bUkkaCcqJj5R6cBcc5IEbrHFWnSmsnK1YSIrSR1eGtE";
-
-const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  return await res.json();
+}
 
 // ==== FUNGSI DUMMY BAWAH INI BIAR TIDAK ERROR ====
 function Cancel() {
@@ -68,12 +71,7 @@ async function reload() {
   resultDiv.innerHTML = `<p>Sedang mengambil jadwal untuk ${tanggalStr}...</p>`;
 
   // panggil Supabase
-  const { data, error } = await supabaseClient
-    .from("jadwal_ujian") // NAMA TABEL DI SUPABASE
-    .select("*")
-    .eq("exam_date", tanggalStr)
-    .order("place_code", { ascending: true })
-    .order("start_time", { ascending: true });
+  const { data, error } = await fetchJadwal(tanggalStr);
 
   if (error) {
     console.error(error);
@@ -210,4 +208,3 @@ async function reload() {
 
   resultDiv.innerHTML = html;
 }
-
