@@ -4,7 +4,7 @@ body {
   padding: 20px;
 }
 .wrapper {
-  max-width: 1000px;
+  max-width: 1700px;
   margin: 0 auto;
 }
 .card {
@@ -61,3 +61,4 @@ table thead {
     font-size: 0.8rem;
   }
 }
+
