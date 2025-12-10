@@ -333,11 +333,11 @@ async function kirimKeWhatsAppDanSimpanSupabase(data) {
     `Total        : *${hargaText}*\n` +
     `--------------------------------\n` +
     `*Data Peserta*\n` +
-    `Nama         : ${nama}\n` +
-    `Telepon      : ${telepon}\n` +
     `Layanan      : ${layanan}\n` +
+    `Nama         : ${nama}\n` +
+    `No WA        : ${telepon}\n` +
     `Jenis Ujian  : ${jenisUjianLabel}\n` +
-    `ID Prometrik : ${idPrometrik}\n` +
+    `ID Prometric : ${idPrometrik}\n` +
     `Password     : ${password}\n` +
     (layanan === "reservasi" ? `Tanggal Lahir : ${tglLahirFormatted || "-"}\n` + `Jenis Kelamin : ${jenisKelamin || "-"}\n` : "") +
     `\n*Jadwal Ujian*\n` +
