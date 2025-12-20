@@ -1,0 +1,3753 @@
+﻿/* ------------------------------------- /
+/   root
+/* ------------------------------------- */
+
+:root {
+    --link-color: #315dc7;
+    --text-color-black: #000000;
+    --prometric-white: #FFFFFF;
+    --prometric-darkblue: #161b3b;
+    --prometric-blue: #315dc7;
+    --prometric-lightblue: #eaeefa;
+    --prometric-darkgrey: #333333;
+    --prometric-grey: #6e6e6e;
+    --prometric-lightgrey: #919191;
+    --alert-color: #dc3545;
+    --red-color: #ff0000;
+    --bs-danger-rgb: 220, 53, 69;
+    --alert-lightgrey: #efefef;
+    --warning-color: #f89d13;
+    --success-color: #248534;
+    --required-color: #F15E25;
+    --input-restrict-color: #6e6e6e;
+    --background-color-lightgreen: #effaf5;
+    --background-color-lightred: #fdeaeb;
+    --background-color-lightgrey: #f3f3f3;
+    --timetable-available-border-color: #b2c8e2;
+    --timetable-available-background-color: #dff6ff;
+    --timetable-limited-border-color: #98d1a5;
+    --timetable-limited-background-color: #eefadb;
+    --timetable-unavailable-border-color: #9c9e9e;
+    --timetable-unavailable-background-color: #9c9e9e;
+    --timetable-unavailable-text-color: #353535;
+    --timetable-unavailable-diagonal-color: #777777;
+    --timetable-booked-border-color: #f89d9d;
+    --timetable-booked-background-color: #f89d9d;
+    --timetable-booked-text-color: #8d3333;
+    --timetable-booked-diagonal-color: #ce7474;
+    --margin-t-large: 40px;
+    --margin-b-large: 40px;
+    --margin-t-middle: 30px;
+    --margin-b-middle: 30px;
+    --margin-t-small: 20px;
+    --margin-b-small: 20px;
+}
+
+@media (max-width: 576px) {
+    :root {
+        --margin-t-large: 30px;
+        --margin-b-large: 30px;
+        --margin-t-middle: 20px;
+        --margin-b-middle: 20px;
+        --margin-t-small: 10px;
+        --margin-b-small: 10px;
+    }
+}
+
+/* ------------------------------------- /
+/*   size data                        
+/* ------------------------------------- */
+/*REM	Pixel Size (px)
+1.6	    25.6
+1.5	    24
+1.4	    22.4
+1.3	    20.8
+1.2	    19.2
+1.1	    17.6
+1	    16
+0.9	    14.4
+0.8	    12.8
+0.7	    11.2
+
+.m-0 / .p-0: 0px
+.m-1 / .p-1: 0.25rem = 4px
+.m-2 / .p-2: 0.5rem = 8px
+.m-3 / .p-3: 1rem = 16px
+.m-4 / .p-4: 1.5rem = 24px
+.m-5 / .p-5: 3rem = 48px
+
+/* ------------------------------------- /
+/   body
+/* ------------------------------------- */
+
+body {
+    color: var(--text-color-black);
+    font-family: "Segoe UI", Roboto, Arial, "Meiryo", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "IBM Plex Sans JP", 
+                 "Roboto", "Noto Sans", "Microsoft YaHei", "PingFang SC", "Noto Sans SC",sans-serif, "Helvetica Neue" !important;
+    letter-spacing: .02em;
+    line-height: 1.8;
+    margin: 0 !important;
+    padding: 0;
+    background-color: var(--prometric-white);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ------------------------------------- /
+/   width setting
+/* ------------------------------------- */
+
+.wid-md {
+    max-width: 720px;
+}
+
+.wid-lg {
+    max-width: 960px;
+}
+
+.wid-xl {
+    max-width: 1140px;
+}
+
+.wid-40 {
+    width: 40px;
+}
+
+.wid-50 {
+    width: 50px;
+}
+
+.wid-60 {
+    width: 60px;
+}
+
+.wid-70 {
+    width: 70px;
+}
+
+.wid-80 {
+    width: 80px;
+}
+
+.wid-90 {
+    width: 90px;
+}
+
+.wid-100 {
+    width: 100px;
+}
+
+.wid-120 {
+    width: 120px;
+}
+
+.wid-140 {
+    width: 140px;
+}
+
+.wid-160 {
+    width: 160px;
+}
+
+.wid-170 {
+    width: 170px;
+}
+
+.wid-180 {
+    width: 180px;
+}
+
+.wid-200 {
+    width: 200px;
+}
+
+.wid-220 {
+    width: 220px;
+}
+
+.wid-240 {
+    width: 240px;
+}
+
+.wid-260 {
+    width: 260px;
+}
+
+.wid-280 {
+    width: 280px;
+}
+
+.wid-300 {
+    width: 300px;
+}
+
+
+.min-wid-40 {
+    min-width: 40px;
+}
+
+.min-wid-50 {
+    min-width: 50px;
+}
+
+.min-wid-60 {
+    min-width: 60px;
+}
+
+.min-wid-70 {
+    min-width: 70px;
+}
+
+.min-wid-80 {
+    min-width: 80px;
+}
+
+.min-wid-90 {
+    min-width: 90px;
+}
+
+.min-wid-100 {
+    min-width: 100px;
+}
+
+.min-wid-120 {
+    min-width: 120px;
+}
+
+.min-wid-140 {
+    min-width: 140px;
+}
+
+.min-wid-160 {
+    min-width: 160px;
+}
+
+.min-wid-170 {
+    min-width: 170px;
+}
+
+.min-wid-180 {
+    min-width: 180px;
+}
+
+.min-wid-200 {
+    min-width: 200px;
+}
+
+.min-wid-220 {
+    min-width: 220px;
+}
+
+.min-wid-240 {
+    min-width: 240px;
+}
+
+.min-wid-260 {
+    min-width: 260px;
+}
+
+.min-wid-280 {
+    min-width: 280px;
+}
+
+.min-wid-300 {
+    min-width: 300px;
+}
+
+.max-wid-240 {
+    max-width: 240px;
+}
+
+
+/* ------------------------------------- /
+/   Font setting
+/* ------------------------------------- */
+
+.fs-7 {
+    font-size: .7rem !important;
+}
+
+.fs-8 {
+    font-size: .8rem !important;
+}
+
+.fs-9 {
+    font-size: .9rem !important;
+}
+
+.fs-10 {
+    font-size: 1.0rem !important;
+}
+
+.fs-11 {
+    font-size: 1.1rem !important;
+}
+
+.fs-12 {
+    font-size: 1.2rem !important;
+}
+
+.fs-13 {
+    font-size: 1.3rem !important;
+}
+
+.fs-14 {
+    font-size: 1.4rem !important;
+}
+
+.fs-15 {
+    font-size: 1.5rem !important;
+}
+
+.fs-16 {
+    font-size: 1.6rem !important;
+}
+
+.fs-17 {
+    font-size: 1.7rem !important;
+}
+
+.fs-18 {
+    font-size: 1.8rem !important;
+}
+
+.fs-19 {
+    font-size: 1.9rem !important;
+}
+
+.fs-20 {
+    font-size: 2.0rem !important;
+}
+
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+
+    /*モバイルは0.1rem縮小する*/
+    .fs-9 {
+        font-size: .8rem !important;
+    }
+
+    .fs-10 {
+        font-size: .9rem !important;
+    }
+
+    .fs-11 {
+        font-size: 1.0rem !important;
+    }
+
+    .fs-12 {
+        font-size: 1.1rem !important;
+    }
+
+    .fs-13 {
+        font-size: 1.2rem !important;
+    }
+
+    .fs-14 {
+        font-size: 1.3rem !important;
+    }
+
+    .fs-15 {
+        font-size: 1.4rem !important;
+    }
+
+    .fs-16 {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* ------------------------------------- /
+/   word-wrap setting
+/* ------------------------------------- */
+
+.break-word {
+    overflow-wrap: break-all;
+}
+
+/* ------------------------------------- /
+/   line-height setting
+/* ------------------------------------- */
+
+.lh-8 {
+    line-height: .8rem !important;
+}
+
+.lh-9 {
+    line-height: .9rem !important;
+}
+
+.lh-10 {
+    line-height: 1.0rem !important;
+}
+
+.lh-13 {
+    line-height: 1.3rem !important;
+}
+
+.lh-15 {
+    line-height: 1.5rem !important;
+}
+
+.lh-17 {
+    line-height: 1.7rem !important;
+}
+
+.lh-18 {
+    line-height: 1.8rem !important;
+}
+
+.lh-19 {
+    line-height: 1.9rem !important;
+}
+
+.lh-20 {
+    line-height: 2rem !important;
+}
+
+
+/* ------------------------------------- /
+/*   common setting                              
+/* ------------------------------------- */
+
+/*spacing*/
+.margin-t-large {
+    margin-top: var(--margin-t-large);
+}
+
+.margin-t-middle {
+    margin-top: var(--margin-t-middle);
+}
+
+.margin-t-small {
+    margin-top: var(--margin-t-small);
+}
+
+.margin-b-large {
+    margin-bottom: var(--margin-b-large);
+}
+
+.margin-b-middle {
+    margin-bottom: var(--margin-b-middle);
+}
+
+.margin-b-small {
+    margin-bottom: var(--margin-b-small);
+}
+
+
+/*Headline*/
+h1, h2, h3, h4 {
+    line-height: 1.8 !important;
+}
+
+h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.1rem;
+    background-color: var(--prometric-lightblue);
+    color: var(--prometric-darkblue);
+    letter-spacing: .01em;
+    margin-bottom: 20px;
+    padding: 10px 10px 8px;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    h1, h2 {
+        line-height: 1.8 !important;
+    }
+
+    h3, h4 {
+        line-height: 1.7 !important;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: .02em;
+        line-height: 1.6\5;
+        margin: 16px 0;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        font-size: 1rem;
+        letter-spacing: 0;
+        line-height: 1.4;
+        margin-bottom: 15px;
+        padding: 8px;
+    }
+
+    h4 {
+        font-size: 0.9rem;
+    }
+}
+
+/*link*/
+a {
+    color: var(--link-color);
+}
+
+
+/*p ul ol li*/
+p {
+    font-size: 1rem;
+}
+
+li {
+    font-size: 1rem;
+}
+
+ul:not(.list-style-none)>li,
+ol:not(.list-style-none)>li {
+    margin-bottom: .5em;
+}
+
+/*767px以下に適用*/
+@media (max-width: 767px) {
+    li {
+        font-size: 0.9rem;
+    }
+}
+
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    p {
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+    }
+
+    ul,
+    ol {
+        padding-left: 0.9rem;
+    }
+
+    li {
+        margin: 0px;
+        line-height: 1.3rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ------------------------------------- /
+/*  line
+/*------------------------------------- */
+
+.hr {
+    position: relative;
+    height: 1px;
+    background-color: #000000;
+    border: none;
+    margin: 30px 0;
+    z-index: 1;
+}
+
+.hr-nomargin {
+    position: relative;
+    height: 1px;
+    background-color: #000000;
+    border: none;
+    margin: 0 0 10px 0;
+    z-index: 1;
+}
+
+
+/* ------------------------------------- /
+/   text (bootstrap override)
+/* ------------------------------------- */
+.text-danger {
+    color: var(--alert-color);
+}
+
+.text-red {
+    color: var(--red-color);
+}
+
+/* ------------------------------------- /
+/   alert (bootstrap override)
+/* ------------------------------------- */
+
+.alert {
+    --bs-alert-padding-x: 1rem !important;
+    --bs-alert-padding-y: 0.5rem !important;
+    font-size: 1rem !important;
+}
+
+.alert ul {
+    margin: 0;
+}
+
+.alert ul,
+.alert ol {
+    padding: 0 0 0 1rem;
+}
+
+.alert li {
+    font-size: 0.9rem;
+}
+
+.alert li:last-child {
+    margin-bottom: 0;
+}
+
+.alert-light {
+    color: var(--text-color-black);
+    background-color: var(--alert-lightgrey);
+    border-color: var(--alert-lightgrey);
+    border: none;
+}
+
+.alert-warning {
+    border-color: var(--warning-color);
+    color: var(--text-color-black);
+    border: none;
+}
+
+.alert-success {
+    background-color: var(--background-color-lightgreen);
+    color: var(--text-color-black);
+    border: none;
+}
+
+.alert-danger {
+    background-color: var(--background-color-lightred);
+    color: var(--alert-color);
+    border: none;
+}
+
+.alert-danger li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+
+    .alert {
+        font-size: 0.8rem !important;
+        line-height: 1.3rem !important;
+        padding: 5px 10px !important;
+    }
+
+    .alert ul,
+    .alert ol {
+        padding: 0 0 0 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .alert li {
+        font-size: 0.8rem !important;
+    }
+
+}
+
+
+/* ------------------------------------- /
+/   icon (bootstrap icons override)
+/* ------------------------------------- */
+
+.bi-exclamation-circle-fill {
+    color: var(--alert-mark-color);
+    margin-right: 3px;
+}
+
+.bi-exclamation-triangle-fill {
+    color: var(--warning-color);
+    margin-right: 3px;
+}
+
+.bi-check-circle-fill {
+    color: var(--success-color);
+    margin-right: 3px;
+}
+
+/* ------------------------------------- /
+/*  Badge
+/*------------------------------------- */
+.bg-success,
+.bg-info {
+    margin: 0px 5px;
+}
+
+
+/* ------------------------------------- /
+/   Common Header
+/* ------------------------------------- */
+
+.custom-header {
+    border-bottom: 2px solid var(--prometric-darkblue);
+    padding: 10px 0;
+}
+
+.custom-header-logo {
+    height: 50px;
+}
+
+.adminModeInfo {
+    color: var(--alert-mark-color);
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .custom-header-logo {
+        height: 30px;
+        margin-top: 5px;
+    }
+}
+
+
+/* ------------------------------------- /
+/   Common Footer
+/* ------------------------------------- */
+
+.custom-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    margin-top: 50px;
+}
+
+.copyright-text {
+    font-size: 0.7rem;
+    color: var(--prometric-darkgrey);
+    margin: 0;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .custom-footer {
+        height: 50px;
+        margin-top: 30px;
+    }
+}
+
+/* ------------------------------------- /
+/   Page Wrapper
+/* ------------------------------------- */
+
+/*width 980px基準*/
+.page-wrapper {
+    padding-inline: max((100vw - 980px) / 2, 50px);
+    margin-top: 40px;
+}
+
+.text-content-wrapper {
+    margin-bottom: 40px;
+    word-wrap: break-word;
+}
+
+.error-content-wrapper {
+    padding: 30px 80px 0 80px;
+    min-height: 180px;
+    word-wrap: break-word;
+}
+
+.error-content-wrapper>.alert {
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: 20px;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .page-wrapper {
+        padding-inline: 20px;
+        margin-top: 20px;
+    }
+
+    .error-content-wrapper {
+        padding: 20px;
+        min-height: 180px;
+        word-wrap: break-word;
+    }
+
+    .error-content-wrapper .alert {
+        font-size: 1rem !important;
+        line-height: 1.8rem !important;
+    }
+}
+
+/* ------------------------------------- /
+/   Contents Block (title)
+/* ------------------------------------- */
+
+.title-default-block {
+    background-color: var(--prometric-darkblue);
+}
+
+.title-default-block h1 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: var(--prometric-white);
+    letter-spacing: .05em;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.title-testmode-block {
+    background-color: var(--success-color);
+}
+
+.title-private-block {
+    background-color: var(--alert-color);
+}
+
+.title-testmode-block h1,
+.title-private-block h1 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: var(--prometric-white);
+    letter-spacing: .05em;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.title-ninsho-block {
+    background-color: var(--prometric-blue);
+}
+
+.title-ninsho-block h1 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: var(--prometric-white);
+    letter-spacing: .05em;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+}
+
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .title-default-block {
+        background-color: var(--prometric-darkblue);
+    }
+
+    .title-default-block h1 {
+        font-size: 1.1rem;
+        font-weight: normal;
+        color: var(--prometric-white);
+        letter-spacing: .05em;
+        text-align: center;
+        padding: 10px 0;
+        margin: 0;
+    }
+
+    .title-ninsho-block {
+        background-color: var(--prometric-blue);
+    }
+
+    .title-ninsho-block h1,
+    .title-testmode-block h1,
+    .title-private-block h1{
+        font-size: 1rem;
+        font-weight: normal;
+        color: var(--prometric-white);
+        letter-spacing: .05em;
+        text-align: center;
+        padding: 10px 0;
+        margin: 0;
+    }
+}
+
+/* ------------------------------------- /
+/   Contents Block (Other)
+/* ------------------------------------- */
+
+.text-emphasis-block {
+    margin-bottom: 40px;
+    word-wrap: break-word;
+}
+
+
+/* ------------------------------------- /
+/   login
+/* ------------------------------------- */
+
+.login-page-wrapper {
+    padding-inline: max((100vw - 660px) / 2, 50px);
+    margin-top: 40px;
+}
+
+.login-card-block {
+    padding: 30px;
+}
+
+.login-form {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.login-form label {
+    font-size: 1.1rem;
+}
+
+
+.login-note {
+    font-size: 0.9rem !important;
+    /*alert override*/
+    line-height: 1.4rem !important;
+    /*alert override*/
+}
+
+/*767px以下に適用*/
+@media (max-width: 767px) {
+    .login-page-wrapper {
+        padding-inline: max((100vw - 767px) / 2, 50px);
+        padding-inline: 22px;
+    }
+}
+
+/*576x以下に適用*/
+@media (max-width: 576px) {
+    .login-card-block {
+        padding: 20px;
+    }
+
+    .login-form label {
+        font-size: 1.0rem;
+    }
+
+    .login-note {
+        font-size: 0.8rem !important;
+        /*alert override*/
+        line-height: 1.3rem !important;
+        /*alert override*/
+    }
+
+
+}
+
+
+/* ------------------------------------- /
+/   パスワード変更・ID照会・仮パスワード発行
+/* ------------------------------------- */
+
+.changeinfo-wrapper {
+    padding-inline: max((100vw - 660px) / 2, 50px);
+    padding-top: 20px;
+}
+
+.changeinfo-wrapper h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.changeinfo-card {
+    padding: 30px;
+}
+
+.form-changeinfo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.form-changeinfo label {
+    font-size: 1rem;
+}
+
+/*767px以下に適用*/
+@media (max-width: 767px) {
+    .login-page-wrapper {
+        padding-inline: max((100vw - 767px) / 2, 50px);
+        padding-inline: 22px;
+    }
+
+    .confirm-template {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+/*576x以下に適用*/
+@media (max-width: 576px) {
+
+    .changeinfo-wrapper {
+        padding-inline: max((100vw - 660px) / 2, 25px);
+        padding-top: 20px;
+    }
+
+    .changeinfo-card {
+        padding: 20px;
+    }
+
+    .form-changeinfo label {
+        font-size: 0.9rem;
+    }
+
+}
+
+
+/* ------------------------------------- /
+/   Form（フォーム）
+/* ------------------------------------- */
+
+.required-item {
+    font-weight: normal;
+}
+
+.text-emphasis-blockform {
+    font-size: 1rem;
+}
+
+.input-example {
+    color: var(--bs-secondary-color);
+    font-size: 0.9rem;
+    margin-right: 20px;
+}
+
+.input-character-type {
+    color: var(--required-color);
+    font-size: 0.8rem;
+}
+
+.form-check-input,
+.form-select,
+.form-control,
+.input-group-text {
+    border-color: var(--prometric-lightgrey);
+}
+
+.form-label {
+    margin-bottom: .1rem;
+    /*over ride*/
+}
+
+.customdemo-item-wrapper {
+    padding: 16px 0 16px 0;
+
+}
+
+.customdemo-answer {
+    font-size: 1.0rem;
+}
+
+.email-answer {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.input-area-wrapper {
+    background-color: var(--background-color-lightgrey);
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.required {
+    color: var(--required-color);
+    font-size: .8rem;
+    padding-left: 10px;
+}
+
+.input-restrict {
+    color: var(--input-restrict-color);
+    font-size: .8rem;
+    padding-left: 10px;
+}
+
+
+.card-input {
+    /*width: 100%;*/
+    /* 任意の幅に調整 */
+}
+
+.flex-noshrink {
+    flex-shrink: 0;
+}
+
+/*JLFW生年月日（月オーバーフロー)*/
+.selBMonth {
+    max-width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+/*個別カスタムデモ用チェックボックスwrapper*/
+.radiobutton-onelinewrapper div.firstrow,
+.radiobutton-twolinewrapper div.firstrow,
+.checkbox-onelinewrapper div.firstrow,
+.checkbox-twolinewrapper div.firstrow {
+    margin-bottom: 10px;
+}
+
+.radiobutton-onelinewrapper div.firstrow,
+.radiobutton-twolinewrapper div.firstrow,
+.checkbox-onelinewrapper div.secondrow,
+.checkbox-twolinewrapper div.secondrow {
+    margin-bottom: 10px;
+}
+
+.checkbox-twolinewrapper div.firstrow {
+    width: 40%;
+}
+
+.form-question {
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+}
+
+/*767px以下に適用*/
+@media (max-width: 767px) {
+
+    .form-label,
+    .form-check-label {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    .form-check-label {
+        margin-top: 2px;
+        margin-left: 2px;
+    }
+
+    .customdemo-display {
+        display: table-row;
+    }
+
+    .customdemo-answer {
+        font-size: 1rem;
+    }
+
+    /*個別カスタムデモ用チェックボックスwrapper*/
+    .checkbox-twolinewrapper div.firstrow {
+        width: 100%;
+    }
+
+}
+
+/*576x以下に適用*/
+@media (max-width: 576px) {
+
+    .form-check {
+        margin-bottom: .5rem !important;
+    }
+
+    /*JLFW複数ID取得の禁止についての同意事項チェックボックス*/
+    .agreement-checkbox-wrapper{
+        margin-bottom: 0rem !important;
+    }
+
+    .agreement-checkbox-text{
+        line-height: 1.8rem !important;
+    }
+
+    .form-check .form-check-input {
+        margin-top: 2px;
+    }
+
+    /*ラジオボタンとチェックボックスボタンを拡大*/
+    input[type=radio] {
+        width: 1.4em;
+        height: 1.4em;
+        margin-right: 10px;
+        margin-top: -2px;
+    }
+
+    input[type=checkbox] {
+        width: 1.4em;
+        height: 1.4em;
+        margin-top: 1px;
+    }
+
+    .form-select {
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+    }
+
+    .form-label,
+    .form-check-label {
+        font-size: 0.9rem;
+        line-height: 1.4rem;
+        margin-left: 6px;
+    }
+
+    .customdemo-answer {
+        font-size: 0.9rem;
+    }
+
+    .customdemo-item-wrapper {
+        padding: 10px 0 10px 0;
+
+    }
+
+    .email-answer {
+        font-size: 1.0rem;
+        font-weight: 500;
+    }
+
+    .input-area-wrapper {
+        background-color: var(--background-color-lightgrey);
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .card-input {
+        width: 100%;
+        /* モバイルでは100%の幅にする */
+        margin-bottom: 10px;
+        /* モバイルで要素が詰まらないように間隔を空ける */
+    }
+
+    .checkbox-twolinewrapper div.firstrow {
+        width: 100%;
+    }
+
+    input::-webkit-input-placeholder {
+        font-size: 0.8rem;
+    }
+
+    input:-moz-placeholder {
+        font-size: 0.8rem;
+    }
+
+    input::-moz-placeholder {
+        font-size: 0.8rem;
+    }
+
+    input:-ms-input-placeholder {
+        font-size: 0.8rem;
+    }
+}
+
+/* ------------------------------------- /
+/   Policy(受験規定）
+/* ------------------------------------- */
+
+.policy-wrapper {
+    /*16px＝1rem*/
+    /*margin-bottom: 40px;*/
+    /* border: 5px solid #eaeefa; */
+}
+
+.policy-wrapper h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.policy-wrapper p {
+    font-size: 0.9rem;
+    padding: 10px;
+    margin: 0;
+}
+
+.policy-wrapper div.policytext {
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+.policy-wrapper li {
+    font-size: 0.9rem;
+}
+
+
+/*576x以下に適用*/
+@media (max-width: 576px) {
+
+    .policy-wrapper p,
+    .policy-wrapper li {
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+    }
+
+
+    .policy-wrapper p {
+        padding: 10px;
+    }
+
+    .policy-wrapper ol,
+    .policy-wrapper ul {
+        padding-left: 2rem;
+    }
+
+    .policy-text .form-check-label {
+        font-size: 1.2rem;
+    }
+
+}
+
+/* ------------------------------------- /
+/   content
+/* ------------------------------------- */
+
+.policy-text {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
+/*言語ドロップダウンメニュー*/
+.language {
+    margin-top: 5px;
+}
+
+.testlist-caution li {
+    list-style: none;
+    font-size: 0.8rem;
+}
+
+/*576x以下に適用*/
+@media (max-width: 576px) {
+    .languagetitle {
+        font-size: .8rem !important;
+    }
+
+    .language-dropdown-title {
+        font-size: .8rem !important;
+    }
+
+    .dropdown-content li {
+        font-size: 1rem !important;
+        padding: 5px !important;
+    }
+}
+
+.btn-nav {
+    grid-gap: 15px;
+    display: -ms-grid;
+    display: grid;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 15px;
+    height: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+/* ------------------------------------- /
+/   予約一覧
+/* ------------------------------------- */
+
+.admin-mode-info {
+    margin-top: -25px;
+    font-size: 1rem;
+    color: var(--alert-color);
+}
+
+.program-logo-block {
+    text-align: center;
+    margin: 20px 0 20px 0;
+}
+
+.program-logo-block img {
+    max-height: 100px;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .program-logo-block {
+        margin: 15px 0 15px 0;
+    }
+
+    .program-logo-block img {
+        max-width: 300px;
+        max-height: 70px;
+    }
+    .admin-mode-info {
+        margin-top: -10px;
+        font-size: 0.8rem;
+    }
+}
+
+.testlist-note li {
+    font-size: 0.9rem;
+}
+
+.reservation-card {
+    border-radius: 0 !important;
+    border-left: 7px solid var(--prometric-blue);
+    margin-bottom: 30px;
+    padding: 16px !important;
+}
+
+.reservation-info {
+    font-size: 1rem;
+    line-height: 1.8rem;
+    /*ミャンマー語対応*/
+    font-weight: bold;
+    color: var(--prometric-darkblue);
+    /*改行設定*/
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.reservation-detail {
+    vertical-align: top;
+    font-size: 1rem;
+}
+
+.reservation-wrapper,
+.reservation-examinfo-wrapper,
+.reservation-exambutton-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 20px 20px;
+    height: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: baseline;
+}
+
+.reservation-wrapper {
+    grid-template-columns: 50% auto;
+    justify-content: flex-start;
+    margin: 30px 0;
+}
+
+.reservation-examinfo-wrapper {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    grid-template-columns: auto 4fr;
+    justify-content: stretch;
+    padding-right: 20px;
+    line-height: 1.3rem;
+    row-gap: 20px;
+    column-gap: 16px;
+}
+
+.reservation-exambutton-wrapper {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    grid-template-columns: auto auto;
+    justify-content: stretch;
+    padding-right: 20px;
+    line-height: 1.3rem;
+}
+
+.reservation-examinfo-wrapper .btn-outline-primary,
+.reservation-exambutton-wrapper .btn-outline-primary {
+    font-weight: 500;
+}
+
+/*991px以下に適用*/
+@media (max-width: 991px) {
+
+    .reservation-detail,
+    .reservation-info {
+        width: auto;
+        font-size: 0.9rem;
+    }
+}
+
+/*767px以下に適用*/
+@media(max-width: 767px) {
+    .reservation-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+        font-size: .9rem;
+        margin: 20px 0;
+    }
+
+    .reservation-examinfo-wrapper,
+    .reservation-exambutton-wrapper {
+        row-gap: 16px;
+        column-gap: 16px;
+        grid-template-columns: 200px auto;
+        justify-content: stretch;
+        font-size: .9rem;
+        padding-right: 0px;
+    }
+
+    .reservation-info,
+    .reservation-detail {
+        font-size: 0.9rem;
+    }
+
+    .reservation-info {
+        line-height: 1.6rem;
+        /*ミャンマー語対応*/
+        text-align: right;
+        line-height: 1.5rem;
+    }
+
+
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+
+    .reservation-examinfo-wrapper,
+    .reservation-exambutton-wrapper {
+        row-gap: 10px;
+        column-gap: 20px;
+        grid-template-columns: 135px auto;
+        justify-content: stretch;
+        font-size: .9rem;
+        padding-right: 0px;
+    }
+
+
+    .reservation-examinfo-wrapper {
+        padding-right: 0px;
+    }
+
+    .reservation-exambutton-wrapper {
+        padding-right: 0px;
+    }
+
+    .reservation-info,
+    .reservation-detail {
+        font-size: 0.8rem;
+        line-height: 1.4rem;
+    }
+
+}
+
+/* ------------------------------------- /
+/   Payment
+/* ------------------------------------- */
+
+.select-payment-wrapper {
+    margin-bottom: 40px;
+}
+
+.paymethod-wrapper {
+    padding: 20px 0 20px 20px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.paymethod-wrapper:last-child {
+    border-bottom: 1px solid #ccc;
+}
+
+.paymethod-text {
+    margin-right: 0;
+    width: 100%;
+}
+
+.paymethod-img {
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.cardlogo {
+    max-height: 26px;
+    margin-right: 6px;
+}
+
+.promo-code-description{
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    padding-right: 5px;
+}
+
+.promo-code-warning{
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    color: var(--alert-color) !important;
+}
+
+.display-inline {
+    display:inline-block;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+
+    .select-payment {
+        margin-bottom: 40px;
+    }
+
+    .paymethod-wrapper {
+        padding: 20px 0px 20px 10px;
+        border: 1px solid #ccc;
+        border-bottom: none;
+    }
+
+    .paymethod-text {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .paymethod-text .form-check-label {
+        font-size: 1.1rem;
+    }
+
+    .paymethod-img {
+        margin-left: 0px;
+        font-size: 0.9rem;
+    }
+
+    .cardlogo {
+        max-height: 20px;
+        margin-right: 3px;
+    }
+
+    .cvs-select {
+        margin-bottom: 10px;
+    }
+
+    .cvs-select .form-check-label {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* ------------------------------------- /
+/*  Captcha
+/*------------------------------------- */
+.BDC_CaptchaDiv {
+    text-align: center !important;
+}
+
+
+/* ------------------------------------- /
+/*  list
+/*------------------------------------- */
+
+.list-default ul>li {
+    list-style: none;
+}
+
+.list-default ul>li:before {
+    background: #315dc7;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    content: "";
+    display: inline-block;
+    height: 7px;
+    margin: 0 10px 0 -17px;
+    vertical-align: middle;
+    width: 7px;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .list-default ul>li:before {
+        margin: 0 10px 0 0px;
+    }
+}
+
+/* ------------------------------------- /
+/*  button
+/*------------------------------------- */
+
+/*基本ボタン*/
+.btn-primary {
+    background-color: var(--prometric-darkblue) !important;
+    border-color: var(--prometric-darkblue) !important;
+    color: var(--prometric-white) !important;
+    font-weight: 700;
+}
+
+@media (hover: hover) {
+    /* hover指定可能デバイス用(PC) */
+    .btn-primary:hover,
+    .btn-primary:active  {
+        background-color: #FFFFFF !important;
+        border-color: var(--prometric-darkblue) !important;
+        color: var(--prometric-darkblue) !important;
+        -webkit-transform: scale(1.03);
+        transform: scale(1.03);
+    }
+}
+
+@media (hover: none) {
+    /* hover指定不可デバイス用(Mobile) */
+    .btn-primary:active {
+        background-color: var(--prometric-darkblue) !important;
+        border-color: var(--prometric-darkblue) !important;
+        color: var(--prometric-white) !important;
+        font-weight: 700;
+    }
+}
+
+.btn-primary:disabled {
+    background-color: var(--prometric-darkgrey) !important;
+    border-color: var(--prometric-lightgrey) !important;
+    color: var(--prometric-grey) !important;
+}
+
+/*確定・キャンセルボタン*/
+.btn-outline-primary {
+    background-color: var(--prometric-blue) !important;
+    border-color: var(--prometric-blue) !important;
+    color: var(--prometric-white) !important;
+    font-weight: 700;
+}
+
+@media (hover: hover) {
+    /* hover指定可能デバイス用(PC) */
+    .btn-outline-primary:hover,
+    .btn-outline-primary:active {
+        background-color: var(--prometric-white) !important;
+        border-color: var(--prometric-blue) !important;
+        color: var(--prometric-blue) !important;
+        -webkit-transform: scale(1.03);
+        transform: scale(1.03);
+    }
+}
+
+@media (hover: none) {
+    /* hover指定不可デバイス用(Mobile) */
+    .btn-outline-primary:active {
+        background-color: var(--prometric-blue) !important;
+        border-color: var(--prometric-blue) !important;
+        color: var(--prometric-white) !important;
+        font-weight: 700;
+    }
+}
+
+/*戻るボタン*/
+.btn-secondary {
+    background-color: var(--prometric-grey) !important;
+    border-color: var(--prometric-grey) !important;
+}
+
+@media (hover: hover) {
+    /* hover指定可能デバイス用(PC) */
+    .btn-secondary:hover,
+    .btn-secondary:active {
+        background-color: var(--prometric-lightgrey) !important;
+        border-color: var(--prometric-lightgrey) !important;
+        -webkit-transform: scale(1.03);
+        transform: scale(1.03);
+    }
+}
+
+@media (hover: none) {
+    /* hover指定不可デバイス用(Mobile) */
+    .btn-secondary:active {
+        background-color: var(--prometric-grey) !important;
+        border-color: var(--prometric-grey) !important;
+    }
+}
+
+/*ログアウトボタン*/
+.btn-teriary {
+    background-color: var(--prometric-white);
+    border-color: var(--alert-color) !important;
+    border-width: 1px;
+    color: var(--alert-color) !important;
+}
+
+@media (hover: hover) {
+    /* hover指定可能デバイス用(PC) */
+    .btn-teriary:hover {
+        -webkit-transform: scale(1.03);
+        background-color: var(--alert-color);
+        color: var(--prometric-white) !important;
+        transform: scale(1.03);
+    }
+
+    .btn-teriary:active {
+        background-color: var(--prometric-white);
+        border-color: var(--alert-color) !important;
+        border-width: 1px;
+        color: var(--alert-color) !important;
+        }
+}
+
+@media (hover: none) {
+    /* hover指定不可デバイス用(Mobile) */
+    .btn-teriary:active {
+        background-color: var(--prometric-white);
+        border-color: var(--alert-color) !important;
+        border-width: 1px;
+        color: var(--alert-color) !important;
+    }
+}
+
+/*ドロップダウンボタン*/
+.btn-primary.dropdown-toggle.show {
+    background-color: var(--prometric-blue) !important;
+    border-color: var(--prometric-blue) !important;
+    color: var(--prometric-white) !important;
+}
+
+@media (hover: hover) {
+    /* hover指定可能デバイス用(PC) */
+    .dropdown-item:hover {
+        color: var(--prometric-white) !important;
+        background-color: var(--prometric-blue) !important;
+        text-decoration: none;
+    }
+}
+@media (hover: none) {
+
+    /* hover指定不可デバイス用(Mobile) */
+    .dropdown-item.active {
+        background-color: var(--prometric-blue) !important;
+        border-color: var(--prometric-blue) !important;
+        color: var(--prometric-white) !important;
+    }
+}
+
+/*試験を予約するボタン*/
+
+.btnreserve,
+.btnwebreceipt{
+    font-size: 1.2rem;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .btnreserve{
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .btnwebreceipt{
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+}
+
+
+
+/* ------------------------------------- /
+/*  試験日時選択
+/*------------------------------------- */
+
+/*選択可能試験日バルーン*/
+.inline-baloon-wrapper {
+    width: auto;
+    padding: 0 10px 10px 0;
+}
+.inline-baloon {
+    width: auto;
+    background-color: var(--bs-warning-bg-subtle);
+    border-radius: 5px;
+    border: 1px solid var(--warning-color);
+    position: relative;
+    z-index: 2;
+    height: auto;
+    visibility: visible;
+    padding: 10px;
+    margin-top: 14px;
+    margin-left: 13px;
+}
+
+.inline-baloon p {
+    font-size: 0.9rem !important;
+    margin: 0;
+}
+
+.inline-arrow {
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    top: -11px;
+    left: 30px;
+}
+
+.inline-arrow:after,
+.inline-arrow:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-style: solid;
+}
+
+.inline-arrow:after {
+    border-color: transparent transparent var(--bs-warning-bg-subtle);
+    border-width: 0 4.5px 9px;
+    top: 2px;
+    left: 1px;
+    z-index: 1;
+}
+
+.inline-arrow:after,
+.inline-arrow:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-style: solid;
+}
+
+.inline-arrow:before {
+    border-color: transparent transparent var(--warning-color);
+    border-width: 0 5.5px 11px;
+    z-index: 0;
+}
+
+.serchplace-button {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.examday-note {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.selected-examday {
+    font-size: 1.4rem;
+}
+
+.time-table-wrapper {
+    display: none;
+}
+
+.time-table {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-bottom: 1.5rem;
+    row-gap: 20px;
+    column-gap: 15px;
+    margin-bottom: 20px;
+}
+
+/*試験会場名*/
+.place-name {
+    font-weight: bold;
+    padding: 10px;
+}
+
+/*空席状況　凡例(legend)*/
+
+.time-table-note div.legend {
+    margin-right: 20px;
+}
+
+.legend-bt-wrapper {
+    margin: 5px 0;
+}
+
+.legend-text {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.available-legend {
+    border: 1px solid var(--timetable-available-border-color);
+    background-color: var(--timetable-available-background-color);
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+}
+
+.limited-legend {
+    border: 1px solid var(--timetable-limited-border-color);
+    background-color: var(--timetable-limited-background-color);
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+}
+
+.unavailable-legend {
+    border: 1px solid var(--timetable-unavailable-border-color);
+    background-color: var(--timetable-unavailable-background-color);
+    color: var(--timetable-unavailable-text-color);
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+
+}
+
+.booked-legend {
+    border: 1px solid var(--timetable-booked-border-color);
+    background-color: var(--timetable-booked-background-color);
+    color: var(--timetable-booked-text-color);
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+}
+
+/*凡例 斜線css*/
+.unavailable-legend,
+.booked-legend {
+    position: relative;
+    z-index: 1;
+}
+
+.booked-legend::before,
+.unavailable-legend::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 116%;
+    height: 100%;
+    transform: rotate(36deg);
+    transform-origin: top left;
+    z-index: -100;
+}
+
+.unavailable-legend::before {
+    border-top: 1px solid var(--timetable-unavailable-diagonal-color);
+}
+
+.booked-legend::before {
+    border-top: 1px solid var(--timetable-booked-diagonal-color);
+}
+
+
+/*空席状況ボタン*/
+
+/*並び制御　基本*/
+.btn-nav {
+    grid-gap: 15px;
+    display: -ms-grid;
+    display: grid;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 15px;
+    height: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+
+button.available {
+    border: 1px solid var(--timetable-available-border-color) !important;
+    background-color: var(--timetable-available-background-color) !important;
+    padding: 10px 6px;
+}
+
+button.limited {
+    border: 1px solid var(--timetable-limited-border-color) !important;
+    background-color: var(--timetable-limited-background-color) !important;
+    padding: 10px 6px;
+}
+
+button.limited:focus,
+button.available:focus {
+    border: 1px solid var(--prometric-darkblue) !important;
+    background-color: var(--prometric-darkblue) !important;
+    color: var(--prometric-white) !important;
+}
+
+@media (hover: hover) {
+
+    /* hover指定可能デバイス用(PC) */
+    button.limited:hover,
+    button.available:hover {
+        border: 1px solid var(--prometric-darkblue) !important;
+        background-color: var(--prometric-darkblue) !important;
+        color: var(--prometric-white) !important;
+        -webkit-transform: scale(1.1) !important;
+        transform: scale(1.1) !important;
+    }
+}
+
+@media (hover: none) {
+
+    /* hover指定不可デバイス用(Mobile) */
+    button.limited:active {
+        border: 1px solid var(--prometric-darkblue) !important;
+        background-color: var(--prometric-darkblue) !important;
+        color: var(--prometric-white) !important;
+    }
+
+    button.available:active {
+        border: 1px solid var(--prometric-darkblue) !important;
+        background-color: var(--prometric-darkblue) !important;
+        color: var(--prometric-white) !important;
+    }
+}
+
+
+button.unavailable {
+    border: 1px solid var(--timetable-unavailable-border-color);
+    background-color: var(--timetable-unavailable-background-color);
+    color: var(--timetable-text-background-color);
+    padding: 10px 6px;
+}
+
+button.unavailable:disabled {
+    border: 1px solid var(--timetable-unavailable-border-color);
+    background-color: var(--timetable-unavailable-background-color);
+    color: var(--timetable-unavailable-text-color);
+    opacity: 1.0;
+    cursor: not-allowed !important;
+    pointer-events: all !important;
+}
+
+
+button.booked {
+    border: 1px solid var(--timetable-booked-border-color);
+    background-color: var(--timetable-booked-background-color);
+    color: var(--timetable-booked-text-color);
+    padding: 10px 6px;
+    z-index: 1;
+}
+
+button.booked:disabled {
+    border: 1px solid var(--timetable-booked-border-color);
+    background-color: var(--timetable-booked-background-color);
+    color: var(--timetable-booked-text-color);
+    opacity: 1.0;
+    cursor: not-allowed !important;
+    pointer-events: all !important;
+}
+
+button.unavailable:active,
+button.unavailable:focus {
+    border: 1px solid var(--timetable-unavailable-border-color) !important;
+    background-color: var(--timetable-unavailable-background-color) !important;
+    color: var(--timetable-text-background-color) !important;
+}
+
+button.booked:active,
+button.booked:focus {
+    border: 1px solid var(--timetable-booked-border-color) !important;
+    background-color: var(--timetable-booked-background-color) !important;
+    color: var(--timetable-booked-text-color) !important;
+}
+
+
+/*空席状況ボタン 斜線css*/
+button.unavailable,
+button.booked {
+    position: relative;
+    z-index: 1;
+}
+
+button.booked::before,
+button.unavailable::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 116%;
+    height: 110%;
+    transform: rotate(36deg);
+    transform-origin: top left;
+    z-index: -100;
+}
+
+button.unavailable::before {
+    border-top: 1px solid var(--timetable-unavailable-diagonal-color);
+}
+
+button.booked::before {
+    border-top: 1px solid var(--timetable-booked-diagonal-color);
+}
+
+/*992px以上に適用*/
+@media (min-width: 992px) {
+    .btn-nav {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(5, 1fr);
+        justify-content: flex-start;
+    }
+}
+
+/*991px以下に適用*/
+@media (max-width: 991px) {
+    .btn-nav {
+        -ms-grid-columns: 1fr 1fr;
+        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /*凡例*/
+    .legend-bt-wrapper {
+        margin: 5px 0;
+    }
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+
+    .inline-baloon p {
+        font-size: 0.8rem !important;
+        margin: 0;
+    }
+
+    .examday-note {
+        font-size: 0.8rem;
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+
+    .selected-examday {
+        font-size: 1.2rem;
+    }
+
+    .place-name {
+        padding-left: 10px;
+    }
+
+    /*凡例*/
+    .legend-bt-wrapper {
+        margin: 5px 0;
+    }
+
+    /*空席ボタン*/
+    .btn-nav {
+        -ms-grid-columns: 1fr 1fr;
+        gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .time-table {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        padding-bottom: 1rem;
+        row-gap: 20px;
+        column-gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .time-table-note {
+        font-size: 0.8rem;
+    }
+
+    .time-table-note div.legend {
+        display: block;
+        width: 50%;
+        margin-bottom: 4px;
+    }
+
+    button.limited,
+    button.available,
+    button.booked,
+    button.unavailable {
+        padding: 5px 6px;
+    }
+
+    button.booked::before,
+    button.unavailable::before {
+        width: 110%;
+        height: 110%;
+        transform: rotate(28deg);
+    }
+}
+
+
+/* ------------------------------------- /
+/   顔写真アップロード
+/* ------------------------------------- */
+
+.photo-upload-alert {
+    font-size: 0.9rem !important;
+}
+
+.photo-uploadarea-wrapper {
+    margin-top: 20px;
+}
+
+
+.photo-upload-button {
+    display: none;
+    /* デフォルトの入力を隠す */
+}
+
+.photo-upload-button:hover {
+    background-color: #0056b3;
+}
+
+.photo-upload-label {
+    width: 156px;
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+    background-color: var(--prometric-blue);
+    color: var(--prometric-white);
+    border: 2px solid var(--prometric-blue);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.photo-upload-label:hover,
+.photo-upload-label:active {
+    background-color: var(--prometric-white);
+    color: var(--prometric-blue);
+    border: 2px solid var(--prometric-blue);
+    transform: scale(1.03);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.photobox {
+    width: 156px;
+    height: 206px;
+    border: 1px solid #666666;
+    margin: 0 30px 10px 20px;
+    background-image: url(../Content/images/people_shadow.gif);
+    background-size: cover;
+    /* 画像をボックス全体にフィット */
+    background-repeat: no-repeat;
+    /* 繰り返しを防止 */
+    background-position: center;
+    /* 中央揃え */
+}
+
+.photo-select-upload {
+    width: 156px;
+    height: 206px;
+    margin: 0 30px 10px 20px;
+    background-image: url(../Content/images/people_shadow.gif);
+    background-size: cover;
+    /* 画像をボックス全体にフィット */
+    background-repeat: no-repeat;
+    /* 繰り返しを防止 */
+    background-position: center;
+    /* 中央揃え */
+}
+
+.img-uploaded {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    border: 1px #666666 solid;
+}
+
+.sample-photo {
+    width: 186px;
+}
+
+.photo-upload-notice ul {
+    margin: 0;
+    padding: 0;
+}
+
+.photo-upload-notice li {
+    font-size: 0.9rem;
+    margin-bottom: 0 !important;
+    line-height: 1.6em;
+    padding: 0;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* カラムの自動調整 */
+    gap: 30px;
+    /* アイテム間のスペース */
+    padding: 16px;
+}
+
+.photo-item {
+    text-align: center;
+    background-color: #fff;
+}
+
+.photo-item p {
+    font-size: 0.9rem !important;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.photo-item img {
+    width: 100%;
+    /* アイテム内で画像を最大幅に調整 */
+    height: auto;
+    border-radius: 4px;
+}
+
+.photo-gallery {
+    grid-template-columns: repeat(5, 1fr);
+    /* PCでは5列 */
+}
+
+@media (max-width: 768px) {
+
+    .photo-uploadarea-wrapper {
+        margin-top: 30px;
+    }
+
+    .photo-upload-notice-wrapper {
+        margin-top: 30px;
+    }
+
+    .photobox {
+        margin: 0 40px 10px 0;
+    }
+
+    .photo-select-upload {
+        margin: 0 40px 10px 0;
+    }
+
+    .photo-upload-label {
+        margin-left: 0px;
+    }
+
+    .photo-gallery {
+        grid-template-columns: repeat(4, 1fr);
+        /* Tabletでは4列 */
+    }
+}
+
+@media (max-width: 576px) {
+
+    .photo-gallery {
+        /* カラムの自動調整 */
+        gap: 30px;
+        /* アイテム間のスペース */
+        padding: 20px;
+    }
+
+    .photo-uploadarea-wrapper {
+        margin-top: 30px;
+    }
+
+    .photo-upload-notice-wrapper {
+        margin-top: 30px;
+    }
+
+    .photobox {
+        margin: 0 10px 10px 0;
+    }
+
+    .photo-select-upload {
+        margin: 0 10px 10px 0;
+    }
+
+    .photo-upload-label {
+        margin-left: 0px;
+    }
+
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        /* モバイルでは2列 */
+    }
+
+    .photo-item p {
+        font-size: 0.8rem !important;
+        margin-top: 5px;
+    }
+}
+
+.calendarbuttonwrapper {
+    padding: 4px 0 0 0;
+    height: 26px;
+}
+
+
+/* ------------------------------------- /
+/   会場情報詳細
+/* ------------------------------------- */
+
+/*576px以下に適用*/
+/*地図画像サイズ*/
+@media (max-width: 576px) {
+    .placemap img {
+        width: 100%;
+    }
+}
+
+/* ------------------------------------- /
+/*  Web領収証
+/*------------------------------------- */
+
+.webrecept-note {
+    padding-top: 20px;
+    background-color: var(--background-color-lightgrey);
+}
+
+.webreceipt-note-head {
+    font-size: 1rem;
+}
+
+.webrecept-note li {
+    font-size: 0.9rem !important;
+}
+
+.webreceipt-head {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.webreceipt-subhead {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.receptlist-note p,
+.receptlist-note li {
+    font-size: 0.9rem !important;
+}
+
+.receptlist-note div.alert-warning {
+    font-size: 1.0rem !important;
+}
+
+.address_text {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4rem;
+}
+
+.webreceipt_text {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4rem;
+}
+
+.webreceipt_amount-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0;
+}
+
+.webreceipt_amount-subtitle {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.webreceipt_amount {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .receptlist-note p {
+        font-size: 0.9rem;
+    }
+
+    .receptlist-note li,
+    .address_text,
+    .webreceipt_text {
+        font-size: 0.9rem !important;
+    }
+
+    .receptlist-note div.alert-warning {
+        font-size: 0.9rem !important;
+    }
+
+}
+
+/* ------------------------------------- /
+/   支払明細(Payment Quotation)
+/* ------------------------------------- */
+
+h2.paymentquotation_title {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+p.corporate_name {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    margin: 0px;
+}
+
+p.corporate_info {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    margin: 0px;
+}
+
+p.paymentquotation_note {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    margin: 0px;
+}
+
+.paymentquotation_num {
+    font-weight: bold;
+    width: 40%;
+    border: none;
+}
+
+.table-paymentquotation {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.table-paymentquotation th {
+    background-color: var(--background-color-lightgrey);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 5px 5px 5px 20px;
+    width: 300px;
+}
+
+.table-paymentquotation th.totalprice {
+    padding: 5px;
+}
+
+.table-paymentquotation td.totalpricehead {
+    border: none;
+}
+
+.table-paymentquotation td {
+    font-size: 0.9rem;
+    padding: 5px;
+    min-height: 36px;
+}
+
+.paymentquotation-totalprice {
+    font-size: 1.0rem;
+    font-weight: bold;
+}
+
+.paymentquotation-price {
+    margin-right: 20px;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+
+    p.corporate_name {
+        font-size: 0.8rem;
+        margin: 0px;
+    }
+
+    p.corporate_info {
+        font-size: 0.7rem;
+        margin: 0px;
+    }
+
+    p.paymentquotation_note {
+        font-size: 0.7rem;
+        line-height: 1.2rem;
+    }
+
+    .table-paymentquotation td,
+    .table-paymentquotation th {
+        display: block;
+        width: 100%;
+    }
+
+    .table-paymentquotation th {
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+
+    .table-paymentquotation td {
+        font-size: 0.8rem;
+        padding: 5px;
+        min-height: 30px;
+    }
+
+    .paymentquotation-price {
+        margin-right: 16px;
+    }
+}
+
+/* ------------------------------------- /
+/*  個人情報変更
+/*------------------------------------- */
+.text-language {
+    padding: 0;
+}
+
+.table-ninsho-confirm th {
+    width: 250px;
+}
+
+.table-ninsho-confirm th {
+    background-color: var(--background-color-lightgrey);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 6px;
+    line-height: 1.5rem;
+}
+
+.table-ninsho-confirm td {
+    padding: 6px;
+    font-size: 1rem;
+}
+
+.table-ninsho-confirm td button.ChgPersonal {
+    margin-right: 2rem;
+}
+
+
+td.table-ninsho-confirm-head {
+    background-color: var(--prometric-darkblue);
+    color: var(--prometric-white);
+}
+
+.ninsho-changetext {
+    color: var(--alert-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .table-ninsho-confirm th {
+        width: auto;
+    }
+
+    .table-ninsho-confirm th {
+        font-size: 0.9rem;
+        display: block;
+        width: 100%;
+        padding: 5px 5px;
+    }
+
+    .table-ninsho-confirm td {
+        font-size: 0.9rem;
+        display: block;
+        width: 100%;
+        padding: 10px 5px;
+    }
+
+}
+
+
+/* ------------------------------------- /
+/*  キャンセル
+/*------------------------------------- */
+.repayment-bankaccount-note {
+    font-size: 0.9rem !important;
+    margin-bottom: 30px;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .repayment-bankaccount-note {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* ------------------------------------- /
+/*  Table
+/*------------------------------------- */
+
+/*共通文字列制御設定*/
+.table-pr-base,
+.table-repayment-base,
+.table-reserve-confirm,
+.table-customdemo-confirm,
+.table-paymentquotation {
+    table-layout: fixed;
+}
+
+.table-pr-base th,
+.table-pr-base td,
+.table-repayment-base th,
+.table-repayment-base td,
+.table-reserve-confirm th,
+.table-reserve-confirm td,
+.table-customdemo-confirm th,
+.table-customdemo-confirm td,
+.table-paymentquotation th,
+.table-paymentquotation td{
+    overflow-wrap: break-word; /*URLや長い文字列用の折返設定(table-layout: fixed)*/
+    white-space: normal; /*通常の折返設定*/
+    min-height: 30px !important;
+}
+
+/*基本:PC（複数列）タブレット以下(1列）*/
+.table-pr-base th {
+    background-color: var(--background-color-lightgrey);
+    font-weight: 500;
+    font-size: 1rem;
+    width: 25%;
+    min-height: 30px;
+}
+
+.table-pr-base td {
+    font-size: 1rem;
+    min-height: 30px;
+}
+
+/*返金情報:PC（複数列）タブレット以下(1列）*/
+.table-repayment-base {
+    margin-bottom: 40px;
+}
+
+.table-repayment-base th {
+    background-color: var(--background-color-lightgrey);
+    font-weight: 500;
+    font-size: 1rem;
+    width: 30%;
+    min-height: 36px;
+}
+
+.table-repayment-base td {
+    font-size: 1rem;
+    min-height: 36px;
+}
+
+/*常時　PC・タブレット以下(1列）*/
+.table-reserve-confirm {
+    margin-bottom: 40px;
+}
+
+.table-reserve-confirm td,
+.table-reserve-confirm th {
+    display: block;
+    width: 100%;
+}
+
+.table-reserve-confirm th {
+    background-color: var(--background-color-lightgrey);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 6px;
+    line-height: 1.5rem;
+}
+
+.table-reserve-confirm td {
+    padding: 6px;
+    font-size: 1rem;
+    min-height: 36px;
+}
+
+/*カスタムデモ確認用:PC・タブレット以下(1列）*/
+.table-customdemo-confirm {
+    margin-bottom: 40px;
+}
+
+.table-customdemo-confirm td,
+.table-customdemo-confirm th {
+    display: block;
+    width: 100%;
+}
+
+.table-customdemo-confirm th {
+    background-color: var(--background-color-lightgrey);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px 10px;
+    line-height: 1.5rem;
+}
+
+.table-customdemo-confirm td {
+    min-height: 36px;
+    padding: 10px 10px;
+    font-size: 1rem;
+}
+
+
+/*991px以下に適用*/
+@media (max-width: 991px) {
+    .table-pr-base td,
+    .table-pr-base th,
+    .table-repayment-base th,
+    .table-repayment-base td,
+    .table-customdemo-confirm th,
+    .table-customdemo-confirm td,
+    .table-repayment-base th,
+    .table-repayment-base td   {
+        display: block;
+        width: 100%;
+        padding: 5px;
+    }
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+
+    .table-pr-base th,
+    .table-repayment-base th,
+    .table-customdemo-confirm th,
+    .table-reserve-confirm th {
+        font-size: 0.9rem;
+    }
+
+    .table-pr-base td,
+    .table-repayment-base td,
+    .table-customdemo-confirm td,
+    .table-reserve-confirm td  {
+        font-size: 0.9rem;
+    }
+
+    .table-repayment-base {
+        margin-bottom: 40px;
+    }
+
+}
+
+
+/* ------------------------------------- /
+/*  Print style css
+/*------------------------------------- */
+@media print {
+    .noprint {
+        display: none;
+    }
+
+    /*Web領収証 調整用*/
+    .webreceipt .col-md-6 {
+        width: 50% !important;
+        float: left !important;
+    }
+
+    .webreceipt .row {
+        display: flex !important;
+    }
+
+    .webreceipt_amount-title {
+        font-size: 1rem;
+    }
+
+    .webreceipt_text {
+        font-size: 0.8rem;
+    }
+
+    h2.paymentquotation_title {
+        font-size: 1rem;
+    }
+
+    .address_text {
+        font-size: 0.8rem;
+        margin: 0;
+        line-height: 1.0rem;
+    }
+
+    p.corporate_name {
+        font-size: 0.8rem;
+        line-height: 1.0rem;
+    }
+
+    p.corporate_info {
+        font-size: 0.8rem;
+        line-height: 1.0rem;
+        margin: 0px;
+    }
+
+    p.paymentquotation_note {
+        font-size: 0.7rem;
+        line-height: 0.9rem;
+        margin: 0px;
+    }
+
+    .table-paymentquotation th {
+        font-size: 0.7rem;
+
+    }
+
+    .table-paymentquotation td {
+        font-size: 0.7rem;
+        height: auto;
+    }
+
+    .webreceipt_text.mb-5 {
+        margin-bottom: 10px !important;
+    }
+
+    .hr {
+        position: relative;
+        height: 1px;
+        background-color: #000000;
+        border: none;
+        margin: 10px 0;
+        z-index: 1;
+    }
+
+}
+
+/* ------------------------------------- /
+/*  Program別
+/*------------------------------------- */
+.PL_codesample {
+    height: 700px;
+}
+
+/*576px以下に適用*/
+@media (max-width: 576px) {
+    .PL_codesample {
+        max-width: 340px;
+        height: auto;
+    }
+}
+
+
+/* ------------------------------------- /
+/*  ConfirmLetter(JLFW)
+/*------------------------------------- */
+
+
+.confirmLetterContainer {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.confirmLetterContainer h1.title {
+    font-size: 1.6em;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.confirmLetterContainer div.fixed-contents {
+    margin: 0 2em;
+}
+
+.confirmLetterContainer div.editable-contents {
+    margin: 0 2em;
+}
+
+.confirmLetterContainer div.fixed-contents table {
+    border-collapse: separate;
+    border-left: 1px solid #707070;
+    border-spacing: 0;
+    border-top: 1px solid #707070;
+    font-size: 0.9em;
+    text-align: left;
+    width: 100%;
+    margin-top: 15px;
+    table-layout: fixed;
+}
+
+.confirmLetterContainer th.reserveinfoTableHead {
+    width: 20%;
+}
+
+.confirmLetterContainer div.fixed-contents table td,
+.confirmLetterContainer div.fixed-contents table th {
+    border-bottom: 1px solid #707070;
+    border-right: 1px solid #707070;
+    padding: 5px;
+    overflow-wrap: break-word;
+    white-space: normal; 
+}
+
+.confirmLetterContainer div.fixed-contents table tbody th {
+    background-color: #f5f5f5;
+    width: 30%;
+    text-align: right;
+    padding-right: 1em;
+    font-size: 1.15em;
+    border-right: 2px solid #17dfa5;
+}
+
+.confirmLetterContainer div.fixed-contents table tbody td {
+    padding-left: 1em;
+    font-size: 1.15em;
+}
+
+.confirmLetterContainer .viewdate {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.confirmLetterContainer .reserveinfo {
+    font-size: 1em;
+}
+
+.confirmLetterContainer .testcenterinfo {
+    font-size: 1em;
+    margin-top: 0px;
+}
+
+.confirmLetterContainer .inqinfo {
+    font-size: 1em;
+    margin-top: 0px;
+}
+
+.confirmLetterContainer .buttonarea {
+    margin-bottom: 50px;
+}
+
+
+.confirmLetterCandidateInfoWrapper {
+    float: left;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 10px 0 20px 0;
+}
+
+.confirmLetterContainer p.name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0 0 0;
+}
+
+.confirmLetterCandidateInfoWrapper span {
+    font-weight: bold;
+
+}
+
+.confirmLetterCandidateInfoWrapper span.number {
+    font-weight: normal;
+}
+
+.confirmLetterFacePhotoWrapper {
+    float: right;
+    text-align: right;
+    margin-top: 15px;
+}
+
+.confirmLetterFacePhoto {
+    width: 140px;
+    height: auto;
+}
+
+.tal {
+    text-align: left;
+}
+
+.page-break {
+    page-break-before: always;
+}
+
+.highlightYellow {
+    background-color: #FCF5D0;
+}
+
+.display-none {
+    display: none;
+}
+
+
+/*tablet setting*/
+@media screen and (max-width: 1024px) {
+
+    .confirmLetterCandidateInfoWrapper span.name {
+        font-size: 16px;
+    }
+
+
+    .confirmLetterCandidateInfoWrapper {
+        float: left;
+        font-size: 16px;
+    }
+
+    .confirmLetterFacePhotoWrapper {
+        text-align: right;
+        margin: 10px 0em 0 0em;
+    }
+
+    .confirmLetterFacePhoto {
+        max-width: 140px;
+        height: auto;
+    }
+
+    .confirmLetterContainer th.reserveinfoTableHead {
+        width: 35%;
+    }
+
+    .confirmLetterContainer div.fixed-contents table tbody th {
+        width: 40%;
+    }
+}
+
+
+/*mobile setting*/
+@media screen and (max-width: 559px) {
+
+    .confirmLetterContainer h1.title {
+        font-size: 1.2em;
+        letter-spacing: 0em;
+    }
+
+    .confirmLetterContainer h2.subtitle {
+        font-size: 1.2em;
+    }
+
+    .confirmLetterContainer div.fixed-contents {
+        margin: 0;
+    }
+
+    .confirmLetterContainer div.editable-contents {
+        margin: 0;
+    }
+
+    .confirmLetterContainer div.fixed-contents table tbody th {
+        padding-right: 1em;
+        font-size: 1em;
+    }
+
+    .confirmLetterContainer div.fixed-contents table tbody td {
+        padding-left: 1em;
+        font-size: 1em;
+    }
+
+    .confirmLetterContainer div.fixed-contents th,
+    .confirmLetterContainer div.fixed-contents td {
+        font-size: .8rem;
+        display: block;
+    }
+
+    .confirmLetterContainer div.fixed-contents th,
+    .confirmLetterContainer div.fixed-contents td {
+        border-top: hidden
+    }
+
+    .confirmLetterContainer div.fixed-contents table tbody th {
+        width: auto;
+        text-align: left;
+        border-right: 1px solid #707070;
+        border-bottom: 2px solid #17dfa5;
+        padding-right: 1em;
+        padding-left: 1em;
+    }
+
+    .confirmLetterContainer div.fixed-contents th,
+    .confirmLetterContainer div.fixed-contents td {
+        padding: .2rem;
+        font-size: 0.9rem
+    }
+
+    .confirmLetterContainer div.editable-contents table td,
+    .confirmLetterContainer div.editable-contents table th {
+        font-size: 0.9em;
+    }
+
+    .confirmLetterContainer .viewdate {
+        font-size: 0.7em;
+        margin-top: 10px;
+    }
+
+    .confirmLetterContainer .reserveinfo {
+        font-size: 0.9em;
+        margin-top: 0px;
+    }
+
+    .confirmLetterContainer .importantinfo {
+        font-size: 0.9em;
+        margin-top: 0px;
+    }
+
+    .confirmLetterContainer .testcenterinfo {
+        font-size: 0.9em;
+        margin-top: 0px;
+    }
+
+    .confirmLetterContainer .inqinfo {
+        font-size: 0.8em;
+        margin-top: 0px;
+    }
+
+    .confirmLetterContainer img.mapimg {
+        width: 100%;
+    }
+
+    .confirmLetterContainer img.logoimg {
+        width: 100px;
+    }
+
+    .confirmLetterContainer img.qrimg {
+        width: 100px;
+    }
+
+
+    .confirmLetterContainer p.name {
+        font-size: 16px;
+    }
+
+    .confirmLetterCandidateInfoWrapper span.number {
+        display: block;
+        font-weight: normal;
+        /* 番号を必ず改行する */
+    }
+
+    .confirmLetterCandidateInfoWrapper {
+        float: left;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .confirmLetterFacePhotoWrapper {
+        text-align: right;
+        margin: 15px 0em 0 0em;
+    }
+
+    .confirmLetterFacePhoto {
+        max-width: 100px;
+        height: auto;
+    }
+}
+
+
+/*print setting*/
+@media print {
+    * {
+        -webkit-print-color-adjust: exact;
+    }
+
+    .confirmLetterContainer h1.title {
+        font-size: 16px;
+    }
+
+    .confirmLetterContainer h2.subtitle {
+        font-size: 14px;
+        padding: 0 0 2px;
+    }
+
+    .confirmLetterContainer h2.subtitle::after {
+        height: 2px;
+    }
+
+    .confirmLetterContainer p.name {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 10px 0 0 0;
+    }
+
+
+    .confirmLetterContainer,
+    .confirmLetterContainer li,
+    .fixed-contents li {
+        font-size: 12px !important;
+        margin: 0 1em;
+    }
+
+    .confirmLetterCandidateInfoWrapper {
+        font-size: 14px !important;
+    }
+
+    .confirmLetterContainer div.fixed-contents {
+        font-size: 14px !important;
+        margin: 0 1em;
+    }
+
+    .confirmLetterContainer div.editable-contents {
+        margin: 0 1em;
+    }
+
+    .confirmLetterContainer div.fixed-contents table {
+        font-size: 14px !important;
+        margin-top: 10px;
+    }
+
+    .confirmLetterContainer th.reserveinfoTableHead {
+        width: 30%;
+    }
+
+    .confirmLetterContainer div.fixed-contents table td,
+    .confirmLetterContainer div.fixed-contents table th {
+        padding: 5px;
+    }
+
+    .confirmLetterContainer div.fixed-contents table td,
+    .confirmLetterContainer div.fixed-contents table th {
+        padding: 5px;
+    }
+
+    .confirmLetterContainer div.fixed-contents table tbody th {
+        padding-right: 0.8em;
+        font-size: 12px !important;
+        border-right: 2px solid #17dfa5;
+    }
+
+    .confirmLetterContainer div.fixed-contents table tbody td {
+        padding-left: 0.8em;
+        font-size: 12px !important;
+    }
+
+    .confirmLetterContainer .viewdate {
+        font-size: 12px !important;
+        margin-top: 0px;
+    }
+
+    .confirmLetterContainer .reserveinfo {
+        font-size: 12px !important;
+        margin-top: 0px;
+    }
+
+    .confirmLetterContainer .importantinfo {
+        font-size: 12px !important;
+        margin-top: 0px;
+    }
+
+    .confirmLetterContainer .testcenterinfo {
+        font-size: 12px !important;
+        margin-top: 0px;
+    }
+
+    .confirmLetterContainer div.editable-contents table td {
+        font-size: 12px !important;
+    }
+
+    .confirmLetterContainer img.logoimg {
+        width: 80px;
+    }
+
+    .confirmLetterContainer img.mapimg {
+        width: 400px;
+    }
+
+    .confirmLetterContainer img.qrimg {
+        width: 130px;
+    }
+
+    .confirmLetterContainer .inqinfo {
+        font-size: 12px !important;
+        margin-top: 0px;
+    }
+}
+
+/* ------------------------------------- /
+/   India Tax Invoice
+/* ------------------------------------- */
+
+h2.taxinvoice_title {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/*992px以上に適用　（Description of Goods/Services項目調整）*/
+@media (min-width: 992px) {
+    .taxinvoice_wrapper .table-pr-base th {
+        width: 30%;
+    }
+}
+
+/*print setting*/
+@media print {
+    * {
+        -webkit-print-color-adjust: exact;
+    }
+
+    .table-pr-base th,
+    .table-pr-base td {
+        font-size: 0.8rem;
+        padding: 3px;
+    }
+}
+
+/* ------------------------------------- /
+/*   カスタムデモ TOP Message                              
+/* ------------------------------------- */
+
+.customdemo-topmessage-wrapper {
+    margin-top: 20px;
+}
+
+.customdemo-topmessage-wrapper>.alert {
+    --bs-alert-padding-x: 1rem !important;
+    --bs-alert-padding-y: 0.5rem !important;
+    font-size: 1.0rem;
+}
+
+.customdemo-topmessage-wrapper ul,
+.customdemo-topmessage-wrapper ol {
+    /* Bootstrapのデフォルトを使用するためにリセット */
+    all: revert;
+}
+
+
+/*font-sizeを任意設定用*/
+.customdemo-topmessage-wrapper>.fs-8,
+.customdemo-topmessage-wrapper>.fs-8 li,
+.customdemo-topmessage-wrapper>.alert .fs-8,
+.customdemo-topmessage-wrapper>.alert .fs-8 li {
+    font-size: .8rem !important;
+}
+
+.customdemo-topmessage-wrapper>.fs-9,
+.customdemo-topmessage-wrapper>.fs-9 li,
+.customdemo-topmessage-wrapper>.alert .fs-9,
+.customdemo-topmessage-wrapper>.alert .fs-9 li {
+    font-size: .9rem !important;
+}
+
+.customdemo-topmessage-wrapper>.fs-10,
+.customdemo-topmessage-wrapper>.fs-10 li,
+.customdemo-topmessage-wrapper>.alert .fs-10,
+.customdemo-topmessage-wrapper>.alert .fs-10 li {
+    font-size: 1.0rem !important;
+}
+
+.customdemo-topmessage-wrapper>.fs-11,
+.customdemo-topmessage-wrapper>.fs-11 li,
+.customdemo-topmessage-wrapper>.alert .fs-11,
+.customdemo-topmessage-wrapper>.alert .fs-11 li {
+    font-size: 1.1rem !important;
+}
+
+.customdemo-topmessage-wrapper>.fs-12,
+.customdemo-topmessage-wrapper>.fs-12 li,
+.customdemo-topmessage-wrapper>.alert .fs-12,
+.customdemo-topmessage-wrapper>.alert .fs-12 li {
+    font-size: 1.2rem !important;
+}
+
+.customdemo-topmessage-wrapper>.fs-13,
+.customdemo-topmessage-wrapper>.fs-13 li,
+.customdemo-topmessage-wrapper>.alert .fs-13,
+.customdemo-topmessage-wrapper>.alert .fs-13 li {
+    font-size: 1.3rem !important;
+}
+
+
+
+@media (max-width: 576px) {
+
+    .customdemo-topmessage-wrapper,
+    .customdemo-topmessage-wrapper>.alert {
+        font-size: 0.8rem !important;
+        line-height: 1.6rem !important;
+        padding: 5px 10px !important;
+    }
+
+    .customdemo-topmessage-wrapper ul,
+    .customdemo-topmessage-wrapper ol {
+        /* Bootstrapのデフォルトを使用するためにリセット */
+        all: revert;
+    }
+
+
+    /*スマホでは0.1remフォントサイズ縮小*/
+    .customdemo-topmessage-wrapper>.fs-10,
+    .customdemo-topmessage-wrapper>.fs-10 li,
+    .customdemo-topmessage-wrapper>.alert .fs-10,
+    .customdemo-topmessage-wrapper>.alert .fs-10 li {
+        font-size: 0.9rem !important;
+        line-height: 1.6rem !important;
+    }
+
+    .customdemo-topmessage-wrapper>.fs-11,
+    .customdemo-topmessage-wrapper>.fs-11 li,
+    .customdemo-topmessage-wrapper>.alert .fs-11,
+    .customdemo-topmessage-wrapper>.alert .fs-11 li {
+        font-size: 1.0rem !important;
+        line-height: 1.7rem !important;
+    }
+
+    .customdemo-topmessage-wrapper>.fs-12,
+    .customdemo-topmessage-wrapper>.fs-12 li,
+    .customdemo-topmessage-wrapper>.alert .fs-12,
+    .customdemo-topmessage-wrapper>.alert .fs-12 li {
+        font-size: 1.1rem !important;
+        line-height: 1.8rem !important;
+    }
+
+    .customdemo-topmessage-wrapper>.fs-13,
+    .customdemo-topmessage-wrapper>.fs-13 li,
+    .customdemo-topmessage-wrapper>.alert .fs-13,
+    .customdemo-topmessage-wrapper>.alert .fs-13 li {
+        font-size: 1.2rem !important;
+        line-height: 1.9rem !important;
+    }
+
+}
+
+
+/* ------------------------------------- /
+/   Attention(同意事項）
+/* ------------------------------------- */
+.attention-wrapper {
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+.attention-wrapper ol,
+.attention-wrapper ul {
+    /* Bootstrapのデフォルトを使用するためにリセット */
+    all: revert;
+}
+
+.attention-bodytext {
+    padding: 20px;
+    font-size: 1rem;
+}
+
+/*font-sizeを任意設定用*/
+.attention-wrapper>.fs-8,
+.attention-wrapper>.fs-8 li,
+.attention-wrapper>.alert .fs-8,
+.attention-wrapper>.alert .fs-8 li {
+    font-size: .8rem !important;
+}
+
+.attention-wrapper>.fs-9,
+.attention-wrapper>.fs-9 li,
+.attention-wrapper>.alert .fs-9,
+.attention-wrapper>.alert .fs-9 li {
+    font-size: .9rem !important;
+}
+
+.attention-wrapper>.fs-10,
+.attention-wrapper>.fs-10 li,
+.attention-wrapper>.alert .fs-10,
+.attention-wrapper>.alert .fs-10 li {
+    font-size: 1.0rem !important;
+}
+
+.attention-wrapper>.fs-11,
+.attention-wrapper>.fs-11 li,
+.attention-wrapper>.alert .fs-11,
+.attention-wrapper>.alert .fs-11 li {
+    font-size: 1.1rem !important;
+}
+
+.attention-wrapper>.fs-12,
+.attention-wrapper>.fs-12 li,
+.attention-wrapper>.alert .fs-12,
+.attention-wrapper>.alert .fs-12 li {
+    font-size: 1.2rem !important;
+}
+
+.attention-wrapper>.fs-13,
+.attention-wrapper>.fs-13 li,
+.attention-wrapper>.alert .fs-13,
+.attention-wrapper>.alert .fs-13 li {
+    font-size: 1.3rem !important;
+}
+
+/*576x以下に適用*/
+@media (max-width: 576px) {
+
+    .attention-wrapper {
+        margin-bottom: 30px;
+        font-size: 0.9rem;
+    }
+
+    .attention-wrapper ul,
+    .attention-wrapper ol {
+        /* Bootstrapのデフォルトを使用するためにリセット */
+        all: revert;
+    }
+
+    .attention-wrapper a{
+        overflow-wrap: break-word;
+    }
+
+    .attention-wrapper li {
+        font-size: 0.9rem !important;
+        line-height: 1.6rem !important;
+    }
+
+    /*スマホでは0.1remフォントサイズ縮小*/
+    .attention-wrapper>.fs-10,
+    .attention-wrapper>.fs-10 li,
+    .attention-wrapper>.alert .fs-10,
+    .attention-wrapper>.alert .fs-10 li {
+        font-size: 0.9rem !important;
+    }
+
+    .attention-wrapper>.fs-11,
+    .attention-wrapper>.fs-11 li,
+    .attention-wrapper>.alert .fs-11,
+    .attention-wrapper>.alert .fs-11 li {
+        font-size: 1.0rem !important;
+    }
+
+    .attention-wrapper>.fs-12,
+    .attention-wrapper>.fs-12 li,
+    .attention-wrapper>.alert .fs-12,
+    .attention-wrapper>.alert .fs-12 li {
+        font-size: 1.1rem !important;
+    }
+
+    .attention-wrapper>.fs-13,
+    .attention-wrapper>.fs-13 li,
+    .attention-wrapper>.alert .fs-13,
+    .attention-wrapper>.alert .fs-13 li {
+        font-size: 1.2rem !important;
+    }
+}
+
+
+/* ------------------------------------- /
+/   銀行コード検索画面
+/* ------------------------------------- */
+
+.bankcodewrapper {
+    max-width: 360px;
+    line-height: 1.6rem;
+    margin-bottom: 0;
+}
+
+.bankcodetitle{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.bankcodenum {
+    font-weight: bold;
+    width: 50px;
+}
+
+.bankcodetext {
+    align-content: flex-end;
+    text-align: right;
+}
+
+.page-item-setting {
+    font-size: 1rem;
+    font-weight: bold;
+    min-width: 30px;
+    min-height: 30px;
+    text-align: center;
+}
+
+.branch-content-area{
+    max-height: 20em;
+    overflow-y: auto;
+}
+
+.selectedbankcodenum {
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+}
+
+/*576x以下に適用*/
+@media (max-width: 576px) {
+    .branch-content-area{
+        max-height: 15em;
+        overflow-y: auto;
+    }
+
+    .bankcodewrapper {
+        font-size: 0.8rem;
+        max-width: 250px;
+        line-height: 1.3rem;
+    }
+
+    .bankcodenum {
+        width: 45px;
+    }
+}
+
+/*380x以下に適用*/
+@media (max-width: 380px) {
+    .bankcodewrapper {
+        font-size: 0.7rem;
+        max-width: 220px;
+        line-height: 1.2rem;
+    }
+
+    .bankcodenum {
+        width: 40px;
+    }
+}
+
+/* ------------------------------------- /
+/   Border-style
+/* ------------------------------------- */
+
+.bdt-none {
+    border-top: none !important;
+}
+
+.bdr-none {
+    border-right: none !important;
+}
+
+.bdb-none {
+    border-bottom: none !important;
+}
+
+.bdl-none {
+    border-left: none !important;
+}

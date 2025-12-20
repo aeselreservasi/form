@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Input Jadwal JFT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      .card-header {
+        background-color: #2c3e50;
+      }
+      .btn-primary {
+        background-color: #2980b9;
+        border: none;
+      }
+      .btn-primary:hover {
+        background-color: #3498db;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <div class="card shadow mx-auto" style="max-width: 650px">
+        <div class="card-header text-white p-3">
+          <h4 class="mb-0">Input Jadwal Baru</h4>
+        </div>
+        <div class="card-body p-4">
+          <form id="adminForm">
+            <div class="mb-3">
+              <label class="form-label fw-bold">Token Admin</label>
+              <input type="password" id="adminToken" class="form-control" placeholder="Masukkan password admin" required />
+            </div>
+            <hr />
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">Tanggal (YYYY/MM/DD)</label>
+                <input type="text" id="date" class="form-control" placeholder="2026/01/15" required />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">Pilih Lokasi</label>
+                <select id="locationSelect" class="form-select" required>
+                  <option value="" disabled selected>Pilih lokasi ujian...</option>
+                  <option value="IOJ02|IOJ02/Indonesia Jakarta Timur">IOJ02/Indonesia Jakarta Timur</option>
+                  <option value="IOJ03|IOJ03/Indonesia Surabaya">IOJ03/Indonesia Surabaya</option>
+                  <option value="IOJ04|IOJ04/Indonesia Bandung Andir">IOJ04/Indonesia Bandung Andir</option>
+                  <option value="IOJ05|IOJ05/Indonesia Yogyakarta UII">IOJ05/Indonesia Yogyakarta UII</option>
+                  <option value="IOJ06|IOJ06/Indonesia Medan">IOJ06/Indonesia Medan</option>
+                  <option value="IOJ07|IOJ07/Indonesia Jakarta Pademangan">IOJ07/Indonesia Jakarta Pademangan</option>
+                  <option value="IOJ08|IOJ08/Indonesia Semarang Banyumanik">IOJ08/Indonesia Semarang Banyumanik</option>
+                  <option value="IOJ09|IOJ09/Indonesia Denpasar">IOJ09/Indonesia Denpasar</option>
+                  <option value="IOJ10|IOJ10/Indonesia Jakarta Satrio Tower A">IOJ10/Indonesia Jakarta Satrio Tower A</option>
+                  <option value="IOJ12|IOJ12/Indonesia Jakarta Satrio Tower B">IOJ12/Indonesia Jakarta Satrio Tower B</option>
+                  <option value="IOJ13|IOJ13/Indonesia Jakarta Plaza Sentral">IOJ13/Indonesia Jakarta Plaza Sentral</option>
+                  <option value="IOJ14|IOJ14/Indonesia Yogyakarta Ngaglik">IOJ14/Indonesia Yogyakarta Ngaglik</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Daftar Jam</label>
+              <textarea id="times" class="form-control" placeholder="Contoh: 09:15*;10:00;13:00*" rows="3" required></textarea>
+              <div class="form-text mt-2">
+                <span class="badge bg-success">09:15*</span>
+                = Tersedia (Biru)
+                <br />
+                <span class="badge bg-secondary">10:00</span>
+                = Penuh (Abu-abu)
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2">Simpan ke Google Sheets</button>
+          </form>
+          <div id="statusMsg" class="mt-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // GANTI DENGAN URL WEB APP ANDA
+      const API_URL = "https://script.google.com/macros/s/AKfycbx9BnIgjs-oX87L7bJEdFBxwa9I1u0Ewr68EDI-4RuSLw_GZc0tGvR9xapT_x42BUd8/exec";
+
+      document.getElementById("adminForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector("button");
+        const msg = document.getElementById("statusMsg");
+
+        // Mengambil nilai dari dropdown (memisahkan ID dan Nama)
+        const locationData = document.getElementById("locationSelect").value.split("|");
+        const locId = locationData[0];
+        const locName = locationData[1];
+
+        btn.disabled = true;
+        btn.innerText = "Mengirim...";
+
+        const payload = {
+          token: document.getElementById("adminToken").value,
+          date: document.getElementById("date").value,
+          locId: locId,
+          locName: locName,
+          times: document.getElementById("times").value,
+        };
+
+        try {
+          const response = await fetch(API_URL, {
+            method: "POST",
+            body: JSON.stringify(payload),
+          });
+          const result = await response.json();
+
+          if (result.status === "success") {
+            msg.innerHTML = `<div class="alert alert-success">✅ ${result.msg}</div>`;
+            // Reset hanya field tertentu, token admin tetap ada untuk input selanjutnya
+            document.getElementById("date").value = "";
+            document.getElementById("times").value = "";
+          } else {
+            msg.innerHTML = `<div class="alert alert-danger">❌ ${result.msg}</div>`;
+          }
+        } catch (error) {
+          msg.innerHTML = `<div class="alert alert-danger">⚠️ Error: ${error.message}</div>`;
+        } finally {
+          btn.disabled = false;
+          btn.innerText = "Simpan ke database";
+        }
+      });
+    </script>
+  </body>
+</html>
