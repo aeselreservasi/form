@@ -1,4 +1,21 @@
 const FUNCTION_URL = "https://yuwfecfaoouylnzsdlnr.supabase.co/functions/v1/admin";
+
+// Tambahkan ini: Minta password saat halaman dimuat
+// Anda bisa mengganti ini dengan variabel string jika ingin otomatis, tapi kurang aman.
+let ADMIN_SECRET = localStorage.getItem("admin_secret");
+
+if (!ADMIN_SECRET) {
+  ADMIN_SECRET = prompt("Masukkan Admin Secret untuk melanjutkan:");
+  if (ADMIN_SECRET) {
+    localStorage.setItem("admin_secret", ADMIN_SECRET);
+  }
+}
+
+// Fungsi bantu jika ingin logout/ganti password
+function resetSecret() {
+  localStorage.removeItem("admin_secret");
+  location.reload();
+}
 const statusEl = document.getElementById("status");
 const tableBody = document.querySelector("#data-table tbody");
 const btnDownloadAll = document.getElementById("btn-download-all");
@@ -397,3 +414,4 @@ if (filterLayananSelect) {
 }
 btnDownloadAll.addEventListener("click", downloadAllAsZip);
 loadData();
+
