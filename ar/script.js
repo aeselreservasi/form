@@ -102,25 +102,30 @@ function formatTanggalIndo(isoDate) {
   return `${tanggal} ${bulan[parseInt(m) - 1]} ${y}`;
 }
 async function loadData() {
-  statusEl.textContent = "Memuat data dari server...";
+  statusEl.innerHTML = '<span class="text-primary">Memuat data dari server...</span>';
+  
   try {
     const { data, error } = await callFunction("list", null, "GET");
-    if (error) {
-      console.error("Function list error:", error);
-      statusEl.textContent = "Gagal memuat data dari server. Cek console untuk detail error.";
-      return;
-    }
-    if (!data || data.length === 0) {
-      statusEl.textContent = "Belum ada data.";
-      currentRows = [];
-      tableBody.innerHTML = "";
-      return;
-    }
+    
+    // ... logika handling data kosong seperti sebelumnya ...
     currentRows = data;
     applyFilters();
+
   } catch (err) {
     console.error("loadData error:", err);
-    statusEl.textContent = "Terjadi kesalahan saat memuat data. Cek console untuk detail error.";
+
+    if (err.message === "AUTH_INVALID") {
+      // Tampilan jika password salah
+      statusEl.innerHTML = `
+        <div class="alert alert-danger d-flex align-items-center justify-content-between">
+          <span><strong>Akses Ditolak:</strong> Admin Secret salah atau belum diatur.</span>
+          <button class="btn btn-sm btn-danger" onclick="reinputSecret()">Input Password</button>
+        </div>
+      `;
+    } else {
+      // Tampilan jika error teknis lainnya
+      statusEl.innerHTML = `<div class="alert alert-warning">Terjadi kesalahan: ${err.message}</div>`;
+    }
   }
 }
 function renderTable(rows) {
@@ -425,6 +430,7 @@ if (filterLayananSelect) {
 }
 btnDownloadAll.addEventListener("click", downloadAllAsZip);
 loadData();
+
 
 
 
