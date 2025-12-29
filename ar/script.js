@@ -37,14 +37,12 @@ const editTanggalUjian = document.getElementById("edit-tanggal-ujian");
 const editJamUjian = document.getElementById("edit-jam-ujian");
 let currentRows = [];
 async function callFunction(action, payload, method = "POST") {
-  // Perbaikan URL agar lebih rapi
   const url = `${FUNCTION_URL}?action=${encodeURIComponent(action)}`;
   
   const options = {
     method,
     headers: {
       "Content-Type": "application/json",
-      // TAMBAHKAN BARIS INI:
       "Authorization": `Bearer ${ADMIN_SECRET}` 
     },
   };
@@ -55,12 +53,10 @@ async function callFunction(action, payload, method = "POST") {
 
   const res = await fetch(url, options);
 
-  // Jika token salah (401), hapus dari storage agar user bisa input ulang
+  // Jika password salah (401)
   if (res.status === 401) {
-    alert("Admin Secret salah atau tidak sah!");
-    localStorage.removeItem("admin_secret");
-    location.reload();
-    return;
+    // Kita lempar error khusus agar bisa ditangkap di loadData
+    throw new Error("AUTH_INVALID");
   }
 
   if (!res.ok) {
@@ -429,5 +425,6 @@ if (filterLayananSelect) {
 }
 btnDownloadAll.addEventListener("click", downloadAllAsZip);
 loadData();
+
 
 
