@@ -65,6 +65,14 @@ async function callFunction(action, payload, method = "POST") {
   }
   return res.json();
 }
+function reinputSecret() {
+  const newSecret = prompt("Masukkan Admin Secret yang valid:");
+  if (newSecret) {
+    localStorage.setItem("admin_secret", newSecret);
+    // Refresh halaman atau panggil loadData lagi
+    window.location.reload(); 
+  }
+}
 function applyFilters() {
   if (!currentRows || currentRows.length === 0) {
     tableBody.innerHTML = "";
@@ -430,6 +438,7 @@ if (filterLayananSelect) {
 }
 btnDownloadAll.addEventListener("click", downloadAllAsZip);
 loadData();
+
 
 
 
