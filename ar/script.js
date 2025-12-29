@@ -37,17 +37,32 @@ const editTanggalUjian = document.getElementById("edit-tanggal-ujian");
 const editJamUjian = document.getElementById("edit-jam-ujian");
 let currentRows = [];
 async function callFunction(action, payload, method = "POST") {
-  const url = method === "GET" ? `${FUNCTION_URL}?action=${encodeURIComponent(action)}` : `${FUNCTION_URL}?action=${encodeURIComponent(action)}`;
+  // Perbaikan URL agar lebih rapi
+  const url = `${FUNCTION_URL}?action=${encodeURIComponent(action)}`;
+  
   const options = {
     method,
     headers: {
       "Content-Type": "application/json",
+      // TAMBAHKAN BARIS INI:
+      "Authorization": `Bearer ${ADMIN_SECRET}` 
     },
   };
+
   if (method !== "GET" && payload) {
     options.body = JSON.stringify(payload);
   }
+
   const res = await fetch(url, options);
+
+  // Jika token salah (401), hapus dari storage agar user bisa input ulang
+  if (res.status === 401) {
+    alert("Admin Secret salah atau tidak sah!");
+    localStorage.removeItem("admin_secret");
+    location.reload();
+    return;
+  }
+
   if (!res.ok) {
     const text = await res.text();
     throw new Error(`HTTP ${res.status}: ${text}`);
@@ -414,4 +429,5 @@ if (filterLayananSelect) {
 }
 btnDownloadAll.addEventListener("click", downloadAllAsZip);
 loadData();
+
 
