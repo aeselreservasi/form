@@ -228,7 +228,7 @@ document.getElementById("downloadBtn").onclick = () => {
     margin: 5,
     filename: `invoice_${safeCustName}.pdf`,
     image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2, scrollY: 0 },
+    html2canvas: { scale: 3, scrollY: 0 },
     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
   };
   html2pdf().set(opt).from(element).save();
